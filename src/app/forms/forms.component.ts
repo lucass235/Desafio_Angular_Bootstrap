@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Frameworks } from './frameworks.model';
 
 @Component({
   selector: 'ab-forms',
@@ -8,6 +9,13 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class FormsComponent implements OnInit {
   public forms: FormGroup | any;
+
+  optionFramework: Frameworks[] = [
+    { label: 'Angular', value: 'angular' },
+    { label: 'React', value: 'react' },
+    { label: 'Vue', value: 'vue' },
+    { label: 'jQuery', value: 'jquery' },
+  ];
   constructor() {}
 
   ngOnInit(): void {
@@ -52,7 +60,7 @@ export class FormsComponent implements OnInit {
       technology: new FormControl('', {
         validators: [Validators.required],
       }),
-      frame: new FormControl('', {
+      street: new FormControl('', {
         validators: [Validators.required],
       }),
     });

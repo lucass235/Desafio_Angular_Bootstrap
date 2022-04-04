@@ -7,7 +7,7 @@
 
       <div class="col form-group">
         <label for="">Nome</label>
-        <input type="text" class="form-control" formControlName="name">
+        <input type="text" class="form-control is-valid" formControlName="name">
       </div>
 
       <div class="col form-group">
@@ -111,36 +111,15 @@
           <option value="sql">SQL</option>
         </select>
       </div>
-      <div class="col form-group">
+      <div class="col">
         <label for="">Frameworks</label>
 
-        <div class="row p-2" formControlName="frame">
+        <div class="row p-2 form-group">
 
           <div class="col">
-            <div class="custom-control custom-radio">
-              <input type="radio" name="gender" id="gender-m" class="custom-control-input" value="angular">
-              <label for="" class="custom-control-label">Angular</label>
-            </div>
-          </div>
-
-          <div class="col">
-            <div class="custom-control custom-radio">
-              <input type="radio" name="gender" id="gender-m" class="custom-control-input" value="react">
-              <label for="" class="custom-control-label">React</label>
-            </div>
-          </div>
-
-          <div class="col">
-            <div class="custom-control custom-radio">
-              <input type="radio" name="gender" id="gender-m" class="custom-control-input" value="vue">
-              <label for="" class="custom-control-label">Vue</label>
-            </div>
-          </div>
-
-          <div class="col">
-            <div class="custom-control custom-radio">
-              <input type="radio" name="gender" id="gender-m" class="custom-control-input" value="jQuery">
-              <label for="" class="custom-control-label">jQuery</label>
+            <div *ngFor="let frames of optionFramework" class="custom-control custom-radio">
+              <input type="radio" name="gender" id="gender-m" class="custom-control-input" value="">
+              <label for="" class="custom-control-label">{{frames.label}}</label>
             </div>
           </div>
         </div>
