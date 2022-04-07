@@ -22,15 +22,15 @@
 
           </tr>
         </thead>
-        <tbody>
+        <tbody *ngFor="let usuario of usuarios">
           <tr>
             <th><input class="form-check-input" type="checkbox" id="checkboxNoLabel" value="" aria-label="..."></th>
-            <td>Meu nome</td>
-            <td>meu email</td>
-            <td>meu endereço</td>
-            <td>meu telefone</td>
-            <div><button class="btn"><i class="fa fa-pencil" aria-hidden="true"></i></button>
-              <button class="btn"><i class="fa fa-trash" aria-hidden="true"></i></button>
+            <td>{{usuario.name}}</td>
+            <td>{{usuario.email}}</td>
+            <td>{{usuario.city}}</td>
+            <td>{{usuario.phone}}</td>
+            <div><button (click)="updateUser(usuario)" class="btn"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+              <button (click)="deleteUser(usuario.id)" class="btn"><i class="fa fa-trash" aria-hidden="true"></i></button>
             </div>
           </tr>
         </tbody>

@@ -1,0 +1,67 @@
+{
+  "users": [
+    {
+      "name": "Lucas dos Santos",
+      "CPF": "09260970407",
+      "phone": "81996479569",
+      "email": "lucass235@gmail.com",
+      "confirmEmail": "lucass235@gmail.com",
+      "CEP": 54580255,
+      "number": 50,
+      "complement": "rua 5",
+      "street": "rua 5",
+      "district": "ponte",
+      "city": "cabo",
+      "states": "pernambuco",
+      "position": "programador",
+      "technology": [
+        "node"
+      ],
+      "framework": "angular",
+      "neswllet": "sim",
+      "id": 1
+    },
+    {
+      "name": "dddd",
+      "CPF": "55555555555",
+      "phone": "55555555555",
+      "email": "dd@dd",
+      "confirmEmail": "dd@s",
+      "CEP": "55555555",
+      "number": "55",
+      "complement": "55",
+      "street": "4444",
+      "district": "55",
+      "city": "cabo",
+      "states": "pernambuco",
+      "position": "estudante",
+      "technology": [
+        "c"
+      ],
+      "framework": "angular",
+      "neswllet": "sim",
+      "id": 2
+    },
+    {
+      "name": "Lucas dos Santos Amorim Rego",
+      "CPF": "55555555555",
+      "phone": "81996479555",
+      "email": "lucass235@gmail.com",
+      "confirmEmail": "lucass235@gmail.com",
+      "CEP": "54580255",
+      "number": "555",
+      "complement": "55",
+      "street": "555",
+      "district": "555",
+      "city": "cabo",
+      "states": "pernambuco",
+      "position": "estudante",
+      "technology": [
+        "java"
+      ],
+      "framework": "angular",
+      "neswllet": "sim",
+      "id": 3
+    }
+  ]
+}
