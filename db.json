@@ -1,31 +1,46 @@
 {
   "users": [
     {
-      "id": 1
-    },
-    {
-      "id": 2
+      "name": "augusto",
+      "CPF": "55555555555",
+      "phone": "55555555555",
+      "email": "555555555555555@d",
+      "confirmEmail": "55555555555@d",
+      "CEP": "55555555",
+      "number": "55555",
+      "complement": "555555555555555",
+      "street": "5555555555",
+      "district": "555555",
+      "city": "cabo",
+      "states": "pernambuco",
+      "position": "programador",
+      "technology": [
+        "c"
+      ],
+      "framework": "vue",
+      "neswllet": "sim",
+      "id": 4
     },
     {
       "name": "Lucas ",
-      "CPF": "44444444444",
+      "CPF": "55555555555",
       "phone": "55819964795",
       "email": "lucass235@gmail.com",
-      "confirmEmail": "lucass235@gmail.com",
+      "confirmEmail": "a@a",
       "CEP": "54580255",
-      "number": "44444",
-      "complement": "44444444444",
-      "street": "444444444444",
-      "district": "444444444444444",
+      "number": "55555",
+      "complement": "55555555555",
+      "street": "555555555555555",
+      "district": "55555555555",
       "city": "cabo",
       "states": "pernambuco",
-      "position": "Selecione",
+      "position": "estudante",
       "technology": [
         "java"
       ],
       "framework": "angular",
       "neswllet": "sim",
-      "id": 3
+      "id": 5
     }
   ]
 }

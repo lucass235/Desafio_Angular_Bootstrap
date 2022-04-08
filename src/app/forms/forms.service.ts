@@ -15,11 +15,8 @@ export class FormsService {
 
   updateUser(user: DataUser): Observable<DataUser> {
     const url = `${this.api}/users/${user.id}`;
-    // console.log('Dados no service' + user);
-    console.log('Dados no service nome:' + user.name);
-    console.log('Dados no service nome:' + user.id);
 
-    return this.http.put<DataUser>(url, JSON.stringify(user));
+    return this.http.put<DataUser>(url, user);
   }
 
   getUserId(id: number) {

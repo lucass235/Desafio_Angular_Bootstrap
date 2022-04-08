@@ -101,9 +101,8 @@ export class FormsComponent implements OnInit {
       this.user = this.completForms();
       console.log(this.user);
 
-      this.formsService.updateUser(this.user).subscribe((r) => {
+      this.formsService.updateUser(this.user).subscribe(() => {
         console.log('Usuario editado');
-        console.log(r);
       });
     }
     this.router.navigate(['/crud']);
