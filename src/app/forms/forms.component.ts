@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { DataUser } from './dataUser';
 import { FormsService } from './forms.service';
-import { Usuario } from './usuario.model';
+import { Validation } from './validation';
+
 @Component({
   selector: 'ab-forms',
   templateUrl: './forms.component.html',
@@ -10,9 +12,8 @@ import { Usuario } from './usuario.model';
 })
 export class FormsComponent implements OnInit {
   public forms: FormGroup | any;
-  numberPath = /^[0-9]*$/;
 
-  user: Usuario | undefined;
+  user: DataUser | undefined;
   id: number | undefined;
 
   constructor(
@@ -31,20 +32,10 @@ export class FormsComponent implements OnInit {
         ],
       }),
       cpf: new FormControl('', {
-        validators: [
-          Validators.required,
-          Validators.minLength(11),
-          Validators.maxLength(11),
-          Validators.pattern(this.numberPath),
-        ],
+        validators: [Validators.required, Validators.minLength(11)],
       }),
       phone: new FormControl('', {
-        validators: [
-          Validators.required,
-          Validators.minLength(11),
-          Validators.maxLength(11),
-          Validators.pattern(this.numberPath),
-        ],
+        validators: [Validators.required, Validators.minLength(11)],
       }),
       email: new FormControl('', {
         validators: [Validators.email, Validators.required],
@@ -53,20 +44,10 @@ export class FormsComponent implements OnInit {
         validators: [Validators.email, Validators.required],
       }),
       cep: new FormControl('', {
-        validators: [
-          Validators.required,
-          Validators.minLength(8),
-          Validators.maxLength(8),
-          Validators.pattern(this.numberPath),
-        ],
+        validators: [Validators.required, Validators.minLength(8)],
       }),
       number: new FormControl('', {
-        validators: [
-          Validators.required,
-          Validators.maxLength(5),
-          Validators.pattern(this.numberPath),
-          Validators.pattern(this.numberPath),
-        ],
+        validators: [Validators.required],
       }),
       complement: new FormControl('', {
         validators: [],
@@ -106,7 +87,6 @@ export class FormsComponent implements OnInit {
           this.fillForms();
         });
       } else {
-        console.log('Opa, rota sem id!');
       }
     });
   }
@@ -121,10 +101,10 @@ export class FormsComponent implements OnInit {
       this.user = this.completForms();
       console.log(this.user);
 
-      this.formsService.updateUser(this.user).subscribe(() => {
+      this.formsService.updateUser(this.user).subscribe((r) => {
         console.log('Usuario editado');
+        console.log(r);
       });
-      console.log('Rota com id!');
     }
     this.router.navigate(['/crud']);
   }
@@ -140,13 +120,33 @@ export class FormsComponent implements OnInit {
     this.forms.get('street').setValue(this.user?.street);
     this.forms.get('district').setValue(this.user?.district);
     this.forms.get('city').setValue(this.user?.city);
+    this.forms.get('states').setValue(this.user?.states);
     this.forms.get('position').setValue(this.user?.position);
     this.forms.get('technology').setValue(this.user?.technology);
     this.forms.get('framework').setValue(this.user?.framework);
   }
 
-  completForms(): Usuario {
-    const values: Usuario = {
+  resetForms() {
+    this.forms.get('name').setValue();
+    this.forms.get('cpf').setValue();
+    this.forms.get('phone').setValue();
+    this.forms.get('email').setValue();
+    this.forms.get('confirmEmail').setValue();
+    this.forms.get('cep').setValue();
+    this.forms.get('number').setValue();
+    this.forms.get('complement').setValue();
+    this.forms.get('street').setValue();
+    this.forms.get('district').setValue();
+    this.forms.get('city').setValue();
+    this.forms.get('states').setValue();
+    this.forms.get('position').setValue();
+    this.forms.get('technology').setValue();
+    this.forms.get('framework').setValue();
+    this.forms.get('neswllet').setValue();
+  }
+
+  completForms(): DataUser {
+    const values: DataUser = {
       name: this.forms.value.name,
       CPF: this.forms.value.cpf,
       phone: this.forms.value.phone,
@@ -168,9 +168,13 @@ export class FormsComponent implements OnInit {
     return values;
   }
 
-  // equalsEmail(email: FormControl) {
-  //   return email.value === this.forms.get('email').value
-  //     ? null
-  //     : { emailDiferentes: true };
-  // }
+  equalsEmail() {
+    return Validation.emalsEquals(this.forms);
+  }
+
+  apiCEP() {
+    console.log('oi');
+    const url = `https://viacep.com.br/ws/${54580255}/json/`;
+    fetch(url).then(console.log);
+  }
 }

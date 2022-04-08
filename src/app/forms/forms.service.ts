@@ -2,23 +2,27 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AB_API } from './../../../../users.api';
-import { Usuario } from './usuario.model';
+import { DataUser } from './dataUser';
 
 @Injectable()
 export class FormsService {
   api = AB_API;
   constructor(private http: HttpClient) {}
 
-  postApi(user: Usuario): Observable<Usuario> {
-    return this.http.post<Usuario>(`${this.api}/users`, user);
+  postApi(user: DataUser): Observable<DataUser> {
+    return this.http.post<DataUser>(`${this.api}/users`, user);
   }
 
-  updateUser(user: Usuario): Observable<Usuario> {
+  updateUser(user: DataUser): Observable<DataUser> {
     const url = `${this.api}/users/${user.id}`;
-    return this.http.put<Usuario>(url, JSON.stringify(user));
+    // console.log('Dados no service' + user);
+    console.log('Dados no service nome:' + user.name);
+    console.log('Dados no service nome:' + user.id);
+
+    return this.http.put<DataUser>(url, JSON.stringify(user));
   }
 
   getUserId(id: number) {
-    return this.http.get<Usuario>(`${this.api}/users/${id}`);
+    return this.http.get<DataUser>(`${this.api}/users/${id}`);
   }
 }

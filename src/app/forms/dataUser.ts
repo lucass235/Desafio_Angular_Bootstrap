@@ -1,4 +1,4 @@
-export interface Usuario {
+export interface DataUser {
   name: string;
   CPF: string;
   phone: number;

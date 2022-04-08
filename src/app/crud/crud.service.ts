@@ -2,26 +2,26 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AB_API } from '../../../../users.api';
+import { DataUser } from '../forms/dataUser';
 import { FormsService } from './../forms/forms.service';
-import { Usuario } from './../forms/usuario.model';
 
 @Injectable()
 export class CrudService {
-  usuarios: Usuario[] = [];
+  usuarios: DataUser[] = [];
   api = AB_API;
 
   constructor(private formsService: FormsService, private http: HttpClient) {}
 
-  getUsers(): Observable<Usuario[]> {
-    return this.http.get<Usuario[]>(`${this.api}/users`);
+  getUsers(): Observable<DataUser[]> {
+    return this.http.get<DataUser[]>(`${this.api}/users`);
   }
 
-  deleteUser(id: number): Observable<Usuario> {
+  deleteUser(id: number): Observable<DataUser> {
     const url = `${this.api}/users/${id}`;
-    return this.http.delete<Usuario>(url);
+    return this.http.delete<DataUser>(url);
   }
 
-  getUserId(user: Usuario): Observable<Usuario> {
-    return this.http.get<Usuario>(`${this.api}/users/${user.id}`);
+  getUserId(user: DataUser): Observable<DataUser> {
+    return this.http.get<DataUser>(`${this.api}/users/${user.id}`);
   }
 }

@@ -1,11 +1,13 @@
-<div class="caintainer">
+<div class="container">
   <div class="col">
-    <div class="row bg-primary">
+    <div class="row bg-dark rounded">
       <div class="container d-flex justify-content-between">
-        <label for="" class="bolde">Crud</label>
-        <button class="btn btn-success"><i class="fa fa-plus-circle" aria-hidden="true"></i><a routerLinkActive="active"
-            [routerLink]="['/']" class="text-reset text-decoration-none"> Adicionar novas pessoas</a></button>
+        <label for="" class="h3 text-white font-wight-bold">Crud</label>
+        <button [disabled]="!logged" routerLinkActive="active" [routerLink]="['/']" class="btn btn-success"><i class="fa fa-plus-circle"
+            aria-hidden="true"></i><a class="text-reset text-decoration-none"> Adicionar novas
+            pessoas</a></button>
       </div>
+      <label *ngIf="!logged" class="h6 text-white font-wight-bold">Faça o login para liberar as funções desabilitadas!</label>
     </div>
   </div>
   <div class="col">
@@ -29,8 +31,10 @@
             <td>{{usuario.email}}</td>
             <td>{{usuario.city}}</td>
             <td>{{usuario.phone}}</td>
-            <div><button (click)="updateUser(usuario)" class="btn"><i class="fa fa-pencil" aria-hidden="true"></i></button>
-              <button (click)="deleteUser(usuario.id)" class="btn"><i class="fa fa-trash" aria-hidden="true"></i></button>
+            <div><button [disabled]="!logged" (click)="updateUser(usuario)" class="btn"><i class="fa fa-pencil"
+                  aria-hidden="true"></i></button>
+              <button [disabled]="!logged" (click)="deleteUser(usuario.id)" class="btn"><i class="fa fa-trash"
+                  aria-hidden="true"></i></button>
             </div>
           </tr>
         </tbody>

@@ -1,0 +1,40 @@
+<div class="conatiner">
+  <div class="p-3 mb-2 bg-success text-white rounded-pill">
+    <b>Usuario</b> | Login
+  </div>
+  <div class="col">
+    <p class="login-box-msg">Por favor, efetue o login para continuar</p>
+
+    <form [formGroup]="formsLogin">
+
+      <div class="col form-group">
+        <label for="" class="form-label">Email</label>
+        <input type="text" class="form-control" formControlName="email">
+        <div *ngIf="formsLogin.controls.email.touched">
+          <span class="text-danger" *ngIf="formsLogin.controls.email.errors">
+            Inválido!
+          </span>
+          <span class="text-success" *ngIf="!formsLogin.controls.email.errors">
+            Válido!
+          </span>
+        </div>
+      </div>
+
+      <div class="col form-group">
+        <label for="" class="form-label">Senha</label>
+        <input type="text" class="form-control" formControlName="password">
+        <div *ngIf="formsLogin.controls.password.touched">
+          <span class="text-danger" *ngIf="formsLogin.controls.password.errors">
+            Inválido!
+          </span>
+          <span class="text-success" *ngIf="!formsLogin.controls.password.errors">
+            Válido!
+          </span>
+        </div>
+      </div>
+
+      <button (click)="login()" type="submit" class="btn btn-primary mb-2">Entrar</button>
+
+    </form>
+  </div>
+</div>

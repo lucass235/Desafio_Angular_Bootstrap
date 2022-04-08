@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormsComponent } from './../forms/forms.component';
-import { Usuario } from './../forms/usuario.model';
+import { DataUser } from '../forms/dataUser';
+import { LoginService } from './../login/login.service';
 import { CrudService } from './crud.service';
 
 @Component({
@@ -10,29 +10,31 @@ import { CrudService } from './crud.service';
   styleUrls: ['./crud.component.css'],
 })
 export class CrudComponent implements OnInit {
-  usuarios: Usuario[] = [];
-
-  user: Usuario | undefined;
+  usuarios: DataUser[] = [];
+  logged: boolean = false;
+  user: DataUser | undefined;
 
   constructor(
     private CrudService: CrudService,
     private route: Router,
-    private formsComponent: FormsComponent
+    private LoginService: LoginService
   ) {}
 
   ngOnInit(): void {
     this.CrudService.getUsers().subscribe((users) => {
       this.usuarios = users;
     });
+    this.logged = this.LoginService.logged;
   }
 
   deleteUser(id: any) {
     this.CrudService.deleteUser(id).subscribe((user) => {
       console.log(`Usuario deletado`);
+      this.route.navigate(['/crud']);
     });
   }
 
-  updateUser(user: Usuario) {
+  updateUser(user: DataUser) {
     this.CrudService.getUserId(user).subscribe((response) => {
       this.user = response;
       // this.formsComponent.forms.reset(this.user);

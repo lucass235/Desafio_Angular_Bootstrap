@@ -2,7 +2,7 @@
 
   <!-- {{forms.valid | json }} {{forms.value | json}} -->
 
-  <label class="h1 d-flex justify-content-center text-primary">Formulario de Usuarios</label>
+  <label class="h1 d-flex justify-content-center text-primary text-uppercase">Formulário de Usuários</label>
 
   <form novalidate [formGroup]="forms">
     <div class="row p-2">
@@ -23,7 +23,7 @@
 
       <div class="col form-group">
         <label for="" class="form-label">CPF</label>
-        <input type="text" class="form-control" formControlName="cpf">
+        <input type="text" mask="000.000.000-00" class="form-control" formControlName="cpf">
         <div *ngIf="forms.controls.cpf.touched">
           <span class="text-danger" *ngIf="forms.controls.cpf.errors">
             Inválido!
@@ -36,7 +36,7 @@
 
       <div class="col form-group">
         <label for="" class="form-label">Telefone</label>
-        <input type="text" class="form-control" formControlName="phone">
+        <input type="text" mask="(00) 00000-0000" class="form-control" formControlName="phone">
         <div *ngIf="forms.controls.phone.touched">
           <span class="text-danger" *ngIf="forms.controls.phone.errors">
             Inválido!
@@ -85,7 +85,7 @@
 
       <div class="col form-group">
         <label for="" class="form-label">CEP</label>
-        <input type="text" class="form-control" formControlName="cep">
+        <input type="text" mask="00000-000" class="form-control" formControlName="cep">
         <div *ngIf="forms.controls.cep.touched">
           <span class="text-danger" *ngIf="forms.controls.cep.errors">
             Inválido!
@@ -97,7 +97,7 @@
       </div>
       <div class="col form-group">
         <label for=" " class=" form-label">Número</label>
-        <input type="text" class="form-control" formControlName="number">
+        <input type="text" mask="00000" class="form-control" formControlName="number">
         <div *ngIf="forms.controls.number.touched">
           <span class="text-danger" *ngIf="forms.controls.number.errors">
             Inválido!
@@ -260,12 +260,14 @@
       <div class="row">
         <div class="col">
           <button (click)="setDados()" class=" btn btn-success  m-1" type="submit" [disabled]="!forms.valid">Submit</button>
-          <button class="btn btn-success m-1">Cancelar</button>
+          <button (click)="resetForms()" class="btn btn-success m-1">Cancelar</button>
         </div>
       </div>
     </div>
 
 
   </form>
+
+  <!-- <button class="btn btn-danger" (clcik)="apiCEP()" type="submit">API</button> -->
 
 </div>

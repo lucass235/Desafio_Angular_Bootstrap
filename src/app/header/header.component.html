@@ -1,11 +1,7 @@
-<header>
-  <div class="container d-flex justify-content-between align-items-center">
-    <nav>
-      <ul class="list-inline">
-        <li routerLinkActivate="active" class="list-inline-item"> <a [routerLink]="['/']">Forms</a></li>
-        <li routerLinkActivate="active" class="list-inline-item"> <a [routerLink]="['/crud']">Crud</a></li>
-      </ul>
-    </nav>
-  </div>
-
-</header>
+<div class="container-fluid bg-secondary ">
+  <nav class="nav nav-fill ">
+    <li routerLinkActivate="active" class="nav-item h6"> <a class="nav-link text-white" [routerLink]="['/']">Forms</a></li>
+    <li routerLinkActivate="active" class="nav-item h6"> <a class="nav-link text-white" [routerLink]="['/crud']">Crud</a></li>
+    <li routerLinkActivate="active" class="nav-item h6"> <a class="nav-link text-white" [routerLink]="['/login']">login</a></li>
+  </nav>
+</div>

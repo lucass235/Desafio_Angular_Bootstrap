@@ -4,6 +4,7 @@ import { CrudComponent } from './crud/crud.component';
 import { CrudGuard } from './crud/crud.guard';
 import { FormsComponent } from './forms/forms.component';
 import { FormsGuard } from './forms/forms.guard';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,10 @@ const routes: Routes = [
     component: FormsComponent,
     canActivate: [FormsGuard],
     canDeactivate: [FormsGuard],
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
   },
 ];
 
