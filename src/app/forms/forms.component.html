@@ -73,7 +73,10 @@
         <div *ngIf="forms.controls.confirmEmail.touched">
           <span class="text-danger" *ngIf="forms.controls.confirmEmail.errors">
             Inválido!
-          </span>
+          </span><br>
+          <!-- <span class="text-danger" *ngIf="!checkEmail()">
+            Emails diferente
+          </span> -->
           <span class="text-success" *ngIf="!forms.controls.confirmEmail.errors">
             Válido!
           </span>
@@ -85,7 +88,7 @@
 
       <div class="col form-group">
         <label for="" class="form-label">CEP</label>
-        <input type="text" mask="00000-000" class="form-control" formControlName="cep">
+        <input (blur)="consultCEP()" type="text" mask="00000-000" class="form-control" formControlName="cep">
         <div *ngIf="forms.controls.cep.touched">
           <span class="text-danger" *ngIf="forms.controls.cep.errors">
             Inválido!
@@ -147,11 +150,7 @@
       <div class="col form-group">
         <label for="" class="form-label">Cidade</label>
         <div class="input-group">
-          <select class="form-select" id="inputGroupSelect01" formControlName="city">
-            <option selected>Selecione</option>
-            <option value="cabo">Cabo</option>
-            <option value="recife">Recife</option>
-          </select>
+          <input type="text" class="form-control" formControlName="city">
         </div>
         <div *ngIf="forms.controls.city.touched">
           <span class="text-danger" *ngIf="forms.controls.city.errors">
@@ -165,11 +164,7 @@
       <div class="col form-group">
         <label for="" class="form-label">Estado</label>
         <div class="input-group">
-          <select class="form-select" id="inputGroupSelect01" formControlName="states">
-            <option selected>Selecione</option>
-            <option value="pernambuco">Pernambuco</option>
-            <option value="saoPaulo">São paulo</option>
-          </select>
+          <input type="text" class="form-control" formControlName="states">
         </div>
         <div *ngIf="forms.controls.states.touched">
           <span class="text-danger" *ngIf="forms.controls.states.errors">
@@ -259,14 +254,13 @@
       </div>
       <div class="row">
         <div class="col">
-          <button (click)="setDados()" class=" btn btn-success  m-1" type="submit" [disabled]="!forms.valid">Submit</button>
+          <button (click)="submit()" class=" btn btn-success  m-1" type="submit" [disabled]="!forms.valid">Submit</button>
           <button (click)="resetForms()" class="btn btn-success m-1">Cancelar</button>
         </div>
       </div>
     </div>
-
-
   </form>
+
 
   <!-- <button class="btn btn-danger" (clcik)="apiCEP()" type="submit">API</button> -->
 

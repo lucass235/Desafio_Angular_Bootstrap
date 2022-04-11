@@ -9,9 +9,7 @@ import { LoginComponent } from './login/login.component';
 const routes: Routes = [
   {
     path: '',
-    component: FormsComponent,
-    canActivate: [FormsGuard],
-    canDeactivate: [FormsGuard],
+    component: LoginComponent,
   },
   {
     path: 'crud',
@@ -26,8 +24,10 @@ const routes: Routes = [
     canDeactivate: [FormsGuard],
   },
   {
-    path: 'login',
-    component: LoginComponent,
+    path: 'forms',
+    component: FormsComponent,
+    canActivate: [FormsGuard],
+    canDeactivate: [FormsGuard],
   },
 ];
 

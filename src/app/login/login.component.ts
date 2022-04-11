@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
     this.equalsDates();
     if (this.logged) {
       this.loginService.setLogged(this.logged);
-      this.route.navigate(['/']);
+      this.route.navigate(['/crud']);
     }
   }
 
@@ -46,6 +46,9 @@ export class LoginComponent implements OnInit {
       } else {
         this.logged = false;
       }
+    }
+    if (!this.logged) {
+      alert('Cadastro não encontrado!');
     }
   }
 }

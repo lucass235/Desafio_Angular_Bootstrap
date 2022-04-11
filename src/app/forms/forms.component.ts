@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DataUser } from './dataUser';
 import { FormsService } from './forms.service';
@@ -23,78 +28,86 @@ export class FormsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.forms = new FormGroup({
-      name: new FormControl('', {
-        validators: [
-          Validators.required,
-          Validators.minLength(3),
-          Validators.maxLength(100),
-        ],
-      }),
-      cpf: new FormControl('', {
-        validators: [Validators.required, Validators.minLength(11)],
-      }),
-      phone: new FormControl('', {
-        validators: [Validators.required, Validators.minLength(11)],
-      }),
-      email: new FormControl('', {
-        validators: [Validators.email, Validators.required],
-      }),
-      confirmEmail: new FormControl('', {
-        validators: [Validators.email, Validators.required],
-      }),
-      cep: new FormControl('', {
-        validators: [Validators.required, Validators.minLength(8)],
-      }),
-      number: new FormControl('', {
-        validators: [Validators.required],
-      }),
-      complement: new FormControl('', {
-        validators: [],
-      }),
-      district: new FormControl('', {
-        validators: [Validators.required],
-      }),
-      city: new FormControl('', {
-        validators: [Validators.required],
-      }),
-      states: new FormControl('', {
-        validators: [Validators.required],
-      }),
-      position: new FormControl('', {
-        validators: [Validators.required],
-      }),
-      technology: new FormControl('', {
-        validators: [Validators.required],
-      }),
-      street: new FormControl('', {
-        validators: [Validators.required],
-      }),
-      framework: new FormControl('', {
-        validators: [Validators.required],
-      }),
-      neswllet: new FormControl('', {
-        validators: [Validators.required],
-      }),
-    });
-    // this.forms.get('name').setValue('oi');
+    this.forms = new FormGroup(
+      {
+        name: new FormControl('', {
+          validators: [
+            Validators.required,
+            Validators.minLength(3),
+            Validators.maxLength(100),
+          ],
+        }),
+        cpf: new FormControl('', {
+          validators: [Validators.required, Validators.minLength(11)],
+        }),
+        phone: new FormControl('', {
+          validators: [Validators.required, Validators.minLength(11)],
+        }),
+        email: new FormControl('', {
+          validators: [Validators.email, Validators.required],
+        }),
+        confirmEmail: new FormControl('', {
+          validators: [
+            Validators.email,
+            Validators.required,
+            // this.checkEmail,
+            // Validation.emalsEquals,
+          ],
+        }),
+        cep: new FormControl('', {
+          validators: [Validators.required, Validators.minLength(8)],
+        }),
+        number: new FormControl('', {
+          validators: [Validators.required],
+        }),
+        complement: new FormControl('', {
+          validators: [],
+        }),
+        district: new FormControl('', {
+          validators: [Validators.required],
+        }),
+        city: new FormControl('', {
+          validators: [Validators.required],
+        }),
+        states: new FormControl('', {
+          validators: [Validators.required],
+        }),
+        position: new FormControl('', {
+          validators: [Validators.required],
+        }),
+        technology: new FormControl('', {
+          validators: [Validators.required],
+        }),
+        street: new FormControl('', {
+          validators: [Validators.required],
+        }),
+        framework: new FormControl('', {
+          validators: [Validators.required],
+        }),
+        neswllet: new FormControl('', {
+          validators: [Validators.required],
+        }),
+      }
+      // { validators: [this.checkEmail] }
+    );
 
     this.activeRouter.params.subscribe((params) => {
       if (params['id']) {
         this.id = params['id'];
         this.formsService.getUserId(params['id']).subscribe((response) => {
-          this.user = response;
-          this.fillForms();
+          // this.user = response;
+          this.fillForms(response);
         });
       } else {
       }
     });
+    // this.checkEmail(); TODO: DELERAR
   }
 
-  setDados() {
+  submit() {
     if (this.id === undefined) {
       this.user = this.completForms();
-      this.formsService.postApi(this.user).subscribe((response) => {
+      this.formsService.postApi(this.user).subscribe(() => {
         console.log('Cadastrado');
       });
     } else {
@@ -108,21 +121,19 @@ export class FormsComponent implements OnInit {
     this.router.navigate(['/crud']);
   }
 
-  fillForms() {
-    this.forms.get('name').setValue(this.user?.name);
-    this.forms.get('cpf').setValue(this.user?.CPF);
-    this.forms.get('phone').setValue(this.user?.phone);
-    this.forms.get('email').setValue(this.user?.email);
-    this.forms.get('cep').setValue(this.user?.CEP);
-    this.forms.get('number').setValue(this.user?.number);
-    this.forms.get('complement').setValue(this.user?.complement);
-    this.forms.get('street').setValue(this.user?.street);
-    this.forms.get('district').setValue(this.user?.district);
-    this.forms.get('city').setValue(this.user?.city);
-    this.forms.get('states').setValue(this.user?.states);
-    this.forms.get('position').setValue(this.user?.position);
-    this.forms.get('technology').setValue(this.user?.technology);
-    this.forms.get('framework').setValue(this.user?.framework);
+  fillForms(values: DataUser) {
+    this.forms.get('name').setValue(values?.name);
+    this.forms.get('cpf').setValue(values?.CPF);
+    this.forms.get('phone').setValue(values?.phone);
+    this.forms.get('email').setValue(values?.email);
+    this.forms.get('cep').setValue(values?.CEP);
+    this.forms.get('number').setValue(values?.number);
+    this.forms.get('complement').setValue(values?.complement);
+    this.forms.get('street').setValue(values?.city);
+    this.forms.get('states').setValue(values?.states);
+    this.forms.get('position').setValue(values?.position);
+    this.forms.get('technology').setValue(values?.technology);
+    this.forms.get('framework').setValue(values?.framework);
   }
 
   resetForms() {
@@ -171,9 +182,35 @@ export class FormsComponent implements OnInit {
     return Validation.emalsEquals(this.forms);
   }
 
-  apiCEP() {
-    console.log('oi');
-    const url = `https://viacep.com.br/ws/${54580255}/json/`;
-    fetch(url).then(console.log);
+  consultCEP() {
+    const cep = this.forms.get('cep').value;
+    if (this.forms.get('cep').valid) {
+      this.formsService.consultCEP(cep).subscribe((r: any) => {
+        this.forms.get('complement').setValue(r.complemento);
+        this.forms.get('district').setValue(r.bairro);
+        this.forms.get('city').setValue(r.localidade);
+        this.forms.get('street').setValue(r.logradouro);
+        this.forms.get('states').setValue(r.uf);
+      });
+    }
+  }
+
+  checkEmail(control: AbstractControl) {
+    console.log(control);
+
+    if (
+      this.forms.get('email').value === this.forms.get('confirmEmail').value
+    ) {
+      // this.forms.get('confirmEmail').valid = true;
+      console.log('Iguais');
+
+      return null;
+    } else {
+      console.log('diferentes');
+
+      return { EmailsDiferentes: true };
+    }
+
+    // console.log(email);
   }
 }

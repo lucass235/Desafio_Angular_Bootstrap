@@ -22,4 +22,9 @@ export class FormsService {
   getUserId(id: number) {
     return this.http.get<DataUser>(`${this.api}/users/${id}`);
   }
+
+  consultCEP(cep: string) {
+    console.log(cep);
+    return this.http.get(`https://viacep.com.br/ws/${cep}/json`);
+  }
 }

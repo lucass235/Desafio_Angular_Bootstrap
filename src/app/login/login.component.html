@@ -33,7 +33,7 @@
         </div>
       </div>
 
-      <button (click)="login()" type="submit" class="btn btn-primary mb-2">Entrar</button>
+      <button [disabled]="!formsLogin.valid" (click)="login()" type="submit" class="btn btn-primary mb-2">Entrar</button>
 
     </form>
   </div>
