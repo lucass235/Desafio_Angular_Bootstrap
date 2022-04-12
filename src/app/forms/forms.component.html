@@ -72,11 +72,9 @@
         <input type="text" class="form-control" formControlName="confirmEmail">
         <div *ngIf="forms.controls.confirmEmail.touched">
           <span class="text-danger" *ngIf="forms.controls.confirmEmail.errors">
-            Inválido!
-          </span><br>
-          <!-- <span class="text-danger" *ngIf="!checkEmail()">
+            <!-- {{forms.controls.confirmEmail.errors?.Emailsdifferent | json}} -->
             Emails diferente
-          </span> -->
+          </span>
           <span class="text-success" *ngIf="!forms.controls.confirmEmail.errors">
             Válido!
           </span>
@@ -262,6 +260,5 @@
   </form>
 
 
-  <!-- <button class="btn btn-danger" (clcik)="apiCEP()" type="submit">API</button> -->
 
 </div>

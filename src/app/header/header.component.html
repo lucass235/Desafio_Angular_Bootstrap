@@ -1,6 +1,13 @@
-<div class="container-fluid bg-secondary ">
-  <nav class="nav nav-fill ">
-    <li routerLinkActivate="active" class="nav-item h6"> <a class="nav-link text-white" [routerLink]="['/crud']">Crud</a></li>
-    <li routerLinkActivate="active" class="nav-item h6"> <a class="nav-link text-white" [routerLink]="['/']">login</a></li>
-  </nav>
+<div>
+  <header>
+
+    <ul class="nav nav-fill nav-tabs">
+      <li routerLinkActivate="active" class="nav-item"><a href="#" class="nav-link">Crud</a></li>
+      <li routerLinkActivate="active" class="nav-item"><a href="#" class="nav-link">Login</a></li>
+      <div *ngIf="logged" class="d-flex justify-content-end">
+        <li routerLinkActivate="active" class="nav-item"><button (click)="logout()" href="#" class="nav-link">Sair</button></li>
+      </div>
+    </ul>
+  </header>
+
 </div>

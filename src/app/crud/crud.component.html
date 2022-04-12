@@ -1,21 +1,20 @@
 <div class="container">
   <div class="col">
-    <div class="row bg-dark rounded">
-      <div class="container d-flex justify-content-between">
+    <div class="row bg-dark">
+      <div class="d-flex justify-content-between">
         <label for="" class="h3 text-white font-wight-bold">Crud</label>
         <button [disabled]="!logged" routerLinkActive="active" [routerLink]="['/forms']" class="btn btn-success"><i
             class="fa fa-plus-circle" aria-hidden="true"></i><a class="text-reset text-decoration-none"> Adicionar novas
             pessoas</a></button>
       </div>
-      <label *ngIf="!logged" class="h6 text-white font-wight-bold">Faça o login para liberar as funções desabilitadas!</label>
     </div>
+    <label *ngIf="!logged" class="h6 font-wight-bold">Faça o login para liberar as funções desabilitadas!</label>
   </div>
   <div class="col">
     <div class="container">
       <table class="table table-striped">
         <thead class="table-white">
           <tr>
-            <th><input class="form-check-input" type="checkbox" id="checkboxNoLabel" value="" aria-label="..."></th>
             <th>Nome</th>
             <th>Email</th>
             <th>Endereço</th>
@@ -24,16 +23,15 @@
 
           </tr>
         </thead>
-        <tbody *ngFor="let usuario of usuarios">
+        <tbody *ngFor="let user of users">
           <tr>
-            <th><input class="form-check-input" type="checkbox" id="checkboxNoLabel" value="" aria-label="..."></th>
-            <td>{{usuario.name}}</td>
-            <td>{{usuario.email}}</td>
-            <td>{{usuario.city}}</td>
-            <td>{{usuario.phone}}</td>
-            <div><button [disabled]="!logged" (click)="updateUser(usuario)" class="btn"><i class="fa fa-pencil text-warning"
+            <td>{{user.name}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.city}}</td>
+            <td>{{user.phone}}</td>
+            <div><button [disabled]="!logged" (click)="updateUser(user.id)" class="btn"><i class="fa fa-pencil text-warning"
                   aria-hidden="true"></i></button>
-              <button [disabled]="!logged" (click)="deleteUser(usuario.id)" class="btn"><i class="fa fa-trash text-danger"
+              <button [disabled]="!logged" (click)="deleteUser(user.id)" class="btn"><i class="fa fa-trash text-danger"
                   aria-hidden="true"></i></button>
             </div>
           </tr>

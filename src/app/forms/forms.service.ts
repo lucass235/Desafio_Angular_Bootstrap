@@ -15,7 +15,6 @@ export class FormsService {
 
   updateUser(user: DataUser): Observable<DataUser> {
     const url = `${this.api}/users/${user.id}`;
-
     return this.http.put<DataUser>(url, user);
   }
 
@@ -24,7 +23,6 @@ export class FormsService {
   }
 
   consultCEP(cep: string) {
-    console.log(cep);
     return this.http.get(`https://viacep.com.br/ws/${cep}/json`);
   }
 }

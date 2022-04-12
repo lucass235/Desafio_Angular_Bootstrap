@@ -10,7 +10,7 @@ import { CrudService } from './crud.service';
   styleUrls: ['./crud.component.css'],
 })
 export class CrudComponent implements OnInit {
-  usuarios: DataUser[] = [];
+  users: DataUser[] = [];
   logged: boolean = false;
   user: DataUser | undefined;
 
@@ -21,24 +21,23 @@ export class CrudComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.CrudService.getUsers().subscribe((users) => {
-      this.usuarios = users;
+    this.setUsers();
+    this.logged = this.LoginService.isLogged();
+  }
+
+  setUsers() {
+    this.CrudService.getUsers().subscribe((response) => {
+      this.users = response;
     });
-    this.logged = this.LoginService.logged;
   }
 
   deleteUser(id: any) {
-    this.CrudService.deleteUser(id).subscribe((user) => {
+    this.CrudService.deleteUser(id).subscribe(() => {
       console.log(`Usuario deletado`);
-      this.route.navigate(['/crud']);
     });
   }
 
-  updateUser(user: DataUser) {
-    this.CrudService.getUserId(user).subscribe((response) => {
-      this.user = response;
-      // this.formsComponent.forms.reset(this.user);
-      this.route.navigate([`edit/${user.id}`]);
-    });
+  updateUser(id: any) {
+    this.route.navigate([`edit/${id}`]);
   }
 }

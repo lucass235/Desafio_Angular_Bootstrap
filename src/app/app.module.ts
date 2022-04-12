@@ -34,7 +34,14 @@ const maskConfig: Partial<IConfig> = {
     HttpClientModule,
     NgxMaskModule.forRoot(maskConfig),
   ],
-  providers: [CrudService, FormsService, FormsGuard, CrudGuard, LoginService],
+  providers: [
+    CrudService,
+    FormsService,
+    FormsGuard,
+    CrudGuard,
+    LoginService,
+    HeaderComponent,
+  ],
   bootstrap: [AppComponent],
   exports: [ReactiveFormsModule, FormsModule],
 })

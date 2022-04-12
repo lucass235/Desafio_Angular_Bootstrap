@@ -6,7 +6,6 @@ import { DataUser } from '../forms/dataUser';
 
 @Injectable()
 export class CrudService {
-  usuarios: DataUser[] = [];
   api = AB_API;
 
   constructor(private http: HttpClient) {}
@@ -18,9 +17,5 @@ export class CrudService {
   deleteUser(id: number): Observable<DataUser> {
     const url = `${this.api}/users/${id}`;
     return this.http.delete<DataUser>(url);
-  }
-
-  getUserId(user: DataUser): Observable<DataUser> {
-    return this.http.get<DataUser>(`${this.api}/users/${user.id}`);
   }
 }

@@ -8,7 +8,6 @@ import {
 import { ActivatedRoute, Router } from '@angular/router';
 import { DataUser } from './dataUser';
 import { FormsService } from './forms.service';
-import { Validation } from './validation';
 
 @Component({
   selector: 'ab-forms',
@@ -17,6 +16,8 @@ import { Validation } from './validation';
 })
 export class FormsComponent implements OnInit {
   public forms: FormGroup | any;
+
+  // equalEmails: boolean | undefined;
 
   user: DataUser | undefined;
   id: number | undefined;
@@ -47,12 +48,7 @@ export class FormsComponent implements OnInit {
           validators: [Validators.email, Validators.required],
         }),
         confirmEmail: new FormControl('', {
-          validators: [
-            Validators.email,
-            Validators.required,
-            // this.checkEmail,
-            // Validation.emalsEquals,
-          ],
+          validators: [Validators.email, Validators.required],
         }),
         cep: new FormControl('', {
           validators: [Validators.required, Validators.minLength(8)],
@@ -87,35 +83,29 @@ export class FormsComponent implements OnInit {
         neswllet: new FormControl('', {
           validators: [Validators.required],
         }),
-      }
-      // { validators: [this.checkEmail] }
+      },
+      { validators: [this.checkEmail] }
     );
 
     this.activeRouter.params.subscribe((params) => {
       if (params['id']) {
         this.id = params['id'];
         this.formsService.getUserId(params['id']).subscribe((response) => {
-          // this.user = response;
           this.fillForms(response);
         });
-      } else {
       }
     });
-    // this.checkEmail(); TODO: DELERAR
   }
 
   submit() {
+    this.user = this.completForms();
     if (this.id === undefined) {
-      this.user = this.completForms();
-      this.formsService.postApi(this.user).subscribe(() => {
-        console.log('Cadastrado');
+      this.formsService.postApi(this.user).subscribe((response) => {
+        console.log('Usuario  (' + response.id + ') cadastrado!');
       });
     } else {
-      this.user = this.completForms();
-      console.log(this.user);
-
-      this.formsService.updateUser(this.user).subscribe(() => {
-        console.log('Usuario editado');
+      this.formsService.updateUser(this.user).subscribe((response) => {
+        console.log('Usuario  (' + response.id + ') editado!');
       });
     }
     this.router.navigate(['/crud']);
@@ -129,30 +119,17 @@ export class FormsComponent implements OnInit {
     this.forms.get('cep').setValue(values?.CEP);
     this.forms.get('number').setValue(values?.number);
     this.forms.get('complement').setValue(values?.complement);
-    this.forms.get('street').setValue(values?.city);
+    this.forms.get('street').setValue(values?.street);
     this.forms.get('states').setValue(values?.states);
+    this.forms.get('city').setValue(values?.city);
+    this.forms.get('district').setValue(values?.district);
     this.forms.get('position').setValue(values?.position);
     this.forms.get('technology').setValue(values?.technology);
     this.forms.get('framework').setValue(values?.framework);
   }
 
   resetForms() {
-    this.forms.get('name').setValue();
-    this.forms.get('cpf').setValue();
-    this.forms.get('phone').setValue();
-    this.forms.get('email').setValue();
-    this.forms.get('confirmEmail').setValue();
-    this.forms.get('cep').setValue();
-    this.forms.get('number').setValue();
-    this.forms.get('complement').setValue();
-    this.forms.get('street').setValue();
-    this.forms.get('district').setValue();
-    this.forms.get('city').setValue();
-    this.forms.get('states').setValue();
-    this.forms.get('position').setValue();
-    this.forms.get('technology').setValue();
-    this.forms.get('framework').setValue();
-    this.forms.get('neswllet').setValue();
+    this.forms.reset();
   }
 
   completForms(): DataUser {
@@ -178,10 +155,6 @@ export class FormsComponent implements OnInit {
     return values;
   }
 
-  equalsEmail() {
-    return Validation.emalsEquals(this.forms);
-  }
-
   consultCEP() {
     const cep = this.forms.get('cep').value;
     if (this.forms.get('cep').valid) {
@@ -196,21 +169,12 @@ export class FormsComponent implements OnInit {
   }
 
   checkEmail(control: AbstractControl) {
-    console.log(control);
-
-    if (
-      this.forms.get('email').value === this.forms.get('confirmEmail').value
-    ) {
-      // this.forms.get('confirmEmail').valid = true;
-      console.log('Iguais');
-
+    if (control.get('email')?.value === control.get('confirmEmail')?.value) {
       return null;
     } else {
-      console.log('diferentes');
-
-      return { EmailsDiferentes: true };
+      control.get('confirmEmail')?.setErrors({ Emailsdifferent: true });
+      // control.get('confirmEmail')?.setErrors(null); // setar como valido
+      return { Emailsdifferent: true };
     }
-
-    // console.log(email);
   }
 }

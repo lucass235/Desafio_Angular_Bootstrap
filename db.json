@@ -22,48 +22,6 @@
       "id": 4
     },
     {
-      "name": "Lucas ",
-      "CPF": "55555555555",
-      "phone": "55819964795",
-      "email": "lucass235@gmail.com",
-      "confirmEmail": "a@a",
-      "CEP": "54580255",
-      "number": "55555",
-      "complement": "55555555555",
-      "street": "555555555555555",
-      "district": "55555555555",
-      "city": "cabo",
-      "states": "pernambuco",
-      "position": "estudante",
-      "technology": [
-        "java"
-      ],
-      "framework": "angular",
-      "neswllet": "sim",
-      "id": 5
-    },
-    {
-      "name": "Lucas dos Santos Amorim Rego",
-      "CPF": "23445556555",
-      "phone": "55819964795",
-      "email": "lucass235@gmail.com",
-      "confirmEmail": "lucass235@gmail.com",
-      "CEP": "54580255",
-      "number": "5",
-      "complement": "(Lot Ia Gleba I)",
-      "street": "Rua Cinco",
-      "district": "Ponte dos Carvalhos",
-      "city": "Cabo de Santo Agostinho",
-      "states": "PE",
-      "position": "estudante",
-      "technology": [
-        "java"
-      ],
-      "framework": "react",
-      "neswllet": "sim",
-      "id": 6
-    },
-    {
       "name": "joas",
       "CPF": "58647954214",
       "phone": "81695452646",
@@ -83,6 +41,27 @@
       "framework": "angular",
       "neswllet": "sim",
       "id": 7
+    },
+    {
+      "name": "Sesquito",
+      "CPF": "65656565656",
+      "phone": "56565656565",
+      "email": "poroca@poroca",
+      "confirmEmail": "poroca@poroca",
+      "CEP": "54580260",
+      "number": "55",
+      "complement": "(Lot Ia Gleba I)",
+      "street": "Rua Quatro",
+      "district": "Ponte dos Carvalhos",
+      "city": "Cabo de Santo Agostinho",
+      "states": "PE",
+      "position": "programador",
+      "technology": [
+        "java"
+      ],
+      "framework": "angular",
+      "neswllet": "sim",
+      "id": 9
     }
   ]
 }
