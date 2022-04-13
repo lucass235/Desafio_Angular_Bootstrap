@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { DataUser } from '../forms/dataUser';
+import { DataUser } from '../models/dataUser';
 import { LoginService } from './../login/login.service';
 import { CrudService } from './crud.service';
 

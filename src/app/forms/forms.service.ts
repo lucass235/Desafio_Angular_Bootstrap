@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AB_API } from 'src/app/models/users.api';
-import { DataUser } from './dataUser';
+import { DataUser } from '../models/dataUser';
 
 @Injectable()
 export class FormsService {

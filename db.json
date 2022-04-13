@@ -43,25 +43,25 @@
       "id": 7
     },
     {
-      "name": "Sesquito",
-      "CPF": "65656565656",
-      "phone": "56565656565",
-      "email": "poroca@poroca",
-      "confirmEmail": "poroca@poroca",
-      "CEP": "54580260",
-      "number": "55",
+      "name": "Lucas dos Santos Amorim Rego",
+      "CPF": "44444444444",
+      "phone": "55819964795",
+      "email": "lucass235@gmail.com",
+      "confirmEmail": "lucass235@gmail.com",
+      "CEP": "54580255",
+      "number": "44444",
       "complement": "(Lot Ia Gleba I)",
-      "street": "Rua Quatro",
+      "street": "Rua Cinco",
       "district": "Ponte dos Carvalhos",
       "city": "Cabo de Santo Agostinho",
       "states": "PE",
-      "position": "programador",
+      "position": "estudante",
       "technology": [
-        "java"
+        "node"
       ],
       "framework": "angular",
       "neswllet": "sim",
-      "id": 9
+      "id": 8
     }
   ]
 }

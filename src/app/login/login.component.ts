@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { User } from '../models/user.model';
 import { LoginService } from './login.service';
-import { User } from './user.model';
 
 @Component({
   selector: 'ab-login',
