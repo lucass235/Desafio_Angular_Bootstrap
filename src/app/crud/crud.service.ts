@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { AB_API } from '../../../../users.api';
 import { DataUser } from '../forms/dataUser';
+import { AB_API } from '../models/users.api';
 
 @Injectable()
 export class CrudService {
