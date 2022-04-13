@@ -1,41 +1,43 @@
-<div class="conatiner form-signin">
-  <div class="p-3 mb-2 bg-success text-white rounded-pill">
-    <b>Usuario</b> | Login
-  </div>
-  <div class="col">
-
-    <p class="login-box-msg">Por favor, efetue o login para continuar</p>
-
-    <form [formGroup]="formsLogin">
-
-      <div class="col form-group">
-        <label for="" class="form-label">Email</label>
-        <input type="text" class="form-control" formControlName="email">
-        <div *ngIf="formsLogin.controls.email.touched">
-          <span class="text-danger" *ngIf="formsLogin.controls.email.errors">
-            Inválido!
-          </span>
-          <span class="text-success" *ngIf="!formsLogin.controls.email.errors">
-            Válido!
-          </span>
-        </div>
+<div class="container">
+  <div class="row">
+    <div class="col offset-3 col-6 bg-light">
+      <div class="p-3 mb-2 bg-success text-white rounded-top">
+        <b>Usuario</b> | Login
       </div>
 
-      <div class="col form-group">
-        <label for="" class="form-label">Senha</label>
-        <input type="text" class="form-control" formControlName="password">
-        <div *ngIf="formsLogin.controls.password.touched">
-          <span class="text-danger" *ngIf="formsLogin.controls.password.errors">
-            Inválido!
-          </span>
-          <span class="text-success" *ngIf="!formsLogin.controls.password.errors">
-            Válido!
-          </span>
+      <p *ngIf="!isLogged()" class="login-box-msg">Por favor, efetue o login para continuar</p>
+
+      <form [formGroup]="formsLogin">
+
+        <div class="col form-group">
+          <label for="" class="form-label">Email</label>
+          <input type="text" class="form-control" formControlName="email">
+          <div *ngIf="formsLogin.controls.email.touched">
+            <span class="text-danger" *ngIf="formsLogin.controls.email.errors">
+              Inválido!
+            </span>
+            <span class="text-success" *ngIf="!formsLogin.controls.email.errors">
+              Válido!
+            </span>
+          </div>
         </div>
-      </div>
 
-      <button [disabled]="!formsLogin.valid " (click)="login()" type="submit" class="btn btn-primary mb-2">Entrar</button>
+        <div class="col form-group">
+          <label for="" class="form-label">Senha</label>
+          <input type="text" class="form-control" formControlName="password">
+          <div *ngIf="formsLogin.controls.password.touched">
+            <span class="text-danger" *ngIf="formsLogin.controls.password.errors">
+              Inválido!
+            </span>
+            <span class="text-success" *ngIf="!formsLogin.controls.password.errors">
+              Válido!
+            </span>
+          </div>
+        </div>
 
-    </form>
+        <button [disabled]="!formsLogin.valid" (click)="login()" type="submit" class="btn btn-primary my-2">Entrar</button>
+
+      </form>
+    </div>
   </div>
 </div>

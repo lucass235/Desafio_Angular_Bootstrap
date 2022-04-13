@@ -14,6 +14,7 @@ import { FormsService } from './forms/forms.service';
 import { HeaderComponent } from './header/header.component';
 import { LoginComponent } from './login/login.component';
 import { LoginService } from './login/login.service';
+import { FooterComponent } from './footer/footer.component';
 
 const maskConfig: Partial<IConfig> = {
   validation: false,
@@ -25,6 +26,7 @@ const maskConfig: Partial<IConfig> = {
     CrudComponent,
     HeaderComponent,
     LoginComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { HeaderComponent } from './../header/header.component';
 import { LoginService } from './login.service';
 import { User } from './user.model';
 
@@ -11,12 +10,8 @@ import { User } from './user.model';
 })
 export class LoginComponent implements OnInit {
   formsLogin: FormGroup | any;
-  public logged: boolean = false;
 
-  constructor(
-    private loginService: LoginService,
-    private headerComponent: HeaderComponent
-  ) {}
+  constructor(private loginService: LoginService) {}
 
   ngOnInit(): void {
     this.formsLogin = new FormGroup({
@@ -28,28 +23,16 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    let email = this.formsLogin.get('email').value;
-    let password = this.formsLogin.get('password').value;
-    let user: User = new User(email, password);
-    this.loginService.login(user);
-    // this.headerComponent.setLogged();
-    // console.log('passou no login');
+    if (!this.isLogged()) {
+      let email = this.formsLogin.get('email').value;
+      let password = this.formsLogin.get('password').value;
+      let user: User = new User(email, password);
+      this.loginService.login(user);
+    } else {
+      alert('Você já está logado!');
+    }
   }
-
-  //   equalsDates() {
-  //     for (let i = 0; i < this.users.length; i++) {
-  //       if (
-  //         this.users[i].email === this.formsLogin.get('email').value &&
-  //         this.users[i].password === this.formsLogin.get('password').value
-  //       ) {
-  //         this.logged = true;
-  //         return;
-  //       } else {
-  //         this.logged = false;
-  //       }
-  //     }
-  //     if (!this.logged) {
-  //       alert('Cadastro não encontrado!');
-  //     }
-  //   }
+  isLogged(): boolean {
+    return this.loginService.isLogged();
+  }
 }
