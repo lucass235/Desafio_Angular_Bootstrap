@@ -5,6 +5,7 @@ import { CrudGuard } from './crud/crud.guard';
 import { FormsComponent } from './forms/forms.component';
 import { FormsGuard } from './forms/forms.guard';
 import { LoginComponent } from './login/login.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
   {
@@ -29,6 +30,7 @@ const routes: Routes = [
     canActivate: [FormsGuard],
     canDeactivate: [FormsGuard],
   },
+  { path: '**', component: NotFoundComponent },
 ];
 
 @NgModule({
