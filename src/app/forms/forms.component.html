@@ -7,7 +7,7 @@
   <form novalidate [formGroup]="forms">
     <div class="row p-2">
 
-      <div class="col form-group">
+      <div class="col-md form-group">
         <div class="form-floating mb-2">
           <input type="text" class="form-control" id="nameForm" formControlName="name" placeholder="Nome">
           <label for="nameForm" class="form-label">Nome</label>
@@ -23,7 +23,7 @@
         </div>
       </div>
 
-      <div class="col form-group">
+      <div class="col-md form-group">
         <div class="form-floating mb-2">
           <input type="text" mask="000.000.000-00" class="form-control" id="cpfForm" formControlName="cpf" placeholder="CPF">
           <label for="cpfForm" class="form-label">CPF</label>
@@ -38,7 +38,7 @@
         </div>
       </div>
 
-      <div class="col form-group">
+      <div class="col-md form-group">
         <div class="form-floating mb-2">
           <input type="text" mask="(00) 00000-0000" class="form-control" id="phoneForm" formControlName="phone" placeholder="Telefone">
           <label for="phoneForm" class="form-label">Telefone</label>
@@ -123,7 +123,7 @@
           </span>
         </div>
       </div>
-      <div class="col form-group">
+      <div class="col-md-4 form-group">
         <div class="form-floating mb-2">
           <input type="text" class="form-control" id="complementForm" formControlName="complement" placeholder="Complemento">
           <label for="complementForm" class="form-label">Complemento</label>
@@ -152,7 +152,7 @@
 
     <div class="row p-2">
 
-      <div class="col form-group">
+      <div class="col-md form-group">
         <div class="form-floating mb-2">
           <input type="text" class="form-control" id="districtForm" formControlName="district" placeholder="Bairro">
           <label for="districtForm" class="form-label">Bairro</label>
@@ -166,7 +166,7 @@
           </span>
         </div>
       </div>
-      <div class="col form-group">
+      <div class="col-md form-group">
 
         <div class="form-floating mb-2">
           <input type="text" class="form-control" id="cityForm" formControlName="city" placeholder="Cidade">
@@ -181,7 +181,7 @@
           </span>
         </div>
       </div>
-      <div class="col form-group">
+      <div class="col-md form-group">
         <div class="form-floating mb-2">
           <input type="text" class="form-control" id="statesForm" formControlName="states" placeholder="Estado">
           <label for="statesForm" class="form-label">Estado</label>
@@ -275,7 +275,7 @@
       <div class="row">
         <div class="col">
           <button (click)="submit()" class=" btn btn-success  m-1" type="submit" [disabled]="!forms.valid">Submit</button>
-          <button (click)="resetForms()" class="btn btn-success m-1">Cancelar</button>
+          <button (click)="resetForms()" class="btn btn-outline-success m-1 ">Cancelar</button>
         </div>
       </div>
     </div>

@@ -3,8 +3,6 @@ import { User } from './../models/user.model';
 
 @Injectable()
 export class LoginService {
-  logged: boolean = false;
-
   user!: User;
 
   constructor() {}
