@@ -1,34 +1,34 @@
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
-import { User } from '../models/user.model';
+import { User } from './../models/user.model';
 
 @Injectable()
 export class LoginService {
   logged: boolean = false;
 
-  user: User = new User('lucas', '123');
+  user!: User;
 
-  constructor(private router: Router) {}
+  constructor() {}
 
   login(user: User) {
-    if (
-      this.user.email === user.email &&
-      this.user.password === user.password
-    ) {
-      this.logged = true;
-      this.router.navigate(['/crud']);
-    } else {
-      this.logged = false;
-      alert('Dados não cadastrados!');
+    const userMock = new User();
+    userMock.email = 'lucas';
+    userMock.password = '123';
+
+    if (userMock.email === user.email && userMock.password === user.password) {
+      this.user = user;
+      return true;
     }
+    return false;
   }
 
   isLogged() {
-    return this.logged;
+    if (this.user && this.user.email) {
+      return true;
+    }
+    return false;
   }
 
   logout() {
-    this.logged = false;
-    this.router.navigate(['/']);
+    this.user = {};
   }
 }

@@ -7,12 +7,9 @@ export class CrudGuard implements CanActivate, CanDeactivate<CrudComponent> {
   constructor(private loginService: LoginService) {}
 
   canActivate() {
-    if (!this.loginService.isLogged()) {
-      alert('Você não está logado!');
-    }
     return true;
   }
   canDeactivate(): boolean {
-    return window.confirm('Deseja sair da tela do crud?');
+    return true;
   }
 }

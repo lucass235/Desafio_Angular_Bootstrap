@@ -1,22 +1,22 @@
 <div class="container">
-  <div class="row bg-dark p-2 mb-2">
+  <div class="row header-table p-2 mb-2">
     <div class="d-flex justify-content-between">
-      <label for="" class="h3 text-white font-wight-bold">Crud</label>
-      <button [disabled]="!logged" routerLinkActive="active" [routerLink]="['/forms']" class="btn btn-success"><i class="fa fa-plus-circle"
+      <label for="" class="h3 text-white font-wight-bold">Lista de <strong>Usuários</strong> </label>
+      <button *ngIf="isLogged()" routerLinkActive="active" [routerLink]="['/forms']" class="btn btn-success"><i class="fa fa-plus-circle"
           aria-hidden="true"></i><a class="text-reset text-decoration-none"> Adicionar novas
           pessoas</a></button>
     </div>
   </div>
-  <label *ngIf="!logged" class="h6 font-wight-bold text-danger">Faça o login para liberar as funções desabilitadas!</label>
+  <label *ngIf="!isLogged()" class="h6 font-wight-bold text-danger">Faça o login para liberar as funções desabilitadas!</label>
   <div class="row">
     <table class="table table-striped">
       <thead class="table-white">
         <tr>
           <th>Nome</th>
-          <th>Email</th>
+          <th>E-mail</th>
           <th>Endereço</th>
           <th>Telefone</th>
-          <th>Ações</th>
+          <th *ngIf="isLogged()">Ações</th>
 
         </tr>
       </thead>
@@ -24,12 +24,11 @@
         <tr>
           <td>{{user.name}}</td>
           <td>{{user.email}}</td>
-          <td>{{user.city}}</td>
+          <td>{{user.number}}, {{user.district}}, {{user.city}}, {{user.states}} </td>
           <td>{{user.phone}}</td>
-          <div><button [disabled]="!logged" (click)="updateUser(user.id)" class="btn"><i class="fa fa-pencil text-warning"
-                aria-hidden="true"></i></button>
-            <button [disabled]="!logged" (click)="deleteUser(user.id)" class="btn"><i class="fa fa-trash text-danger"
-                aria-hidden="true"></i></button>
+          <div *ngIf="isLogged()">
+            <button (click)="updateUser(user.id)" class="btn"><i class="fa fa-pencil text-warning" aria-hidden="true"></i></button>
+            <button (click)="deleteUser(user.id)" class="btn"><i class="fa fa-trash text-danger" aria-hidden="true"></i></button>
           </div>
         </tr>
       </tbody>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { User } from '../models/user.model';
 import { LoginService } from './login.service';
 
@@ -11,7 +12,7 @@ import { LoginService } from './login.service';
 export class LoginComponent implements OnInit {
   formsLogin: FormGroup | any;
 
-  constructor(private loginService: LoginService) {}
+  constructor(private loginService: LoginService, private router: Router) {}
 
   ngOnInit(): void {
     this.formsLogin = new FormGroup({
@@ -23,15 +24,18 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    if (!this.isLogged()) {
-      let email = this.formsLogin.get('email').value;
-      let password = this.formsLogin.get('password').value;
-      let user: User = new User(email, password);
-      this.loginService.login(user);
+    let user: User = new User();
+    user.email = this.formsLogin.get('email').value;
+    user.password = this.formsLogin.get('password').value;
+    console.log(user);
+
+    if (this.loginService.login(user)) {
+      this.router.navigate(['/crud']);
     } else {
-      alert('Você já está logado!');
+      alert('Usuario não cadastrado!');
     }
   }
+
   isLogged(): boolean {
     return this.loginService.isLogged();
   }

@@ -1,11 +1,15 @@
 <div>
   <header>
-    <ul class="nav nav-tabs">
-      <li routerLinkActivate="active" class="nav-item"><a [routerLink]="['/crud']" class="nav-link">Crud</a></li>
-      <li routerLinkActivate="active" class="nav-item"><a [routerLink]="['/']" class="nav-link">Login</a></li>
-      <div *ngIf="logged" class="d-flex justify-content-end">
-        <li routerLinkActivate="active" class="nav-item"><button (click)="logout()" href="#" class="nav-link">Sair</button></li>
-      </div>
+    <ul class="nav bg-secondary">
+      <li routerLinkActivate="active" class="nav-item text-white">
+        <a [routerLink]="['/crud']" aria-current="page" class="nav-link">Crud</a>
+      </li>
+      <li *ngIf="!isLogged()" routerLinkActivate="active" class="nav-item">
+        <a [routerLink]="['/']" class="nav-link">Login</a>
+      </li>
+      <li *ngIf="isLogged()" routerLinkActivate="active" class="nav-item">
+        <a [routerLink]="['/']" (click)="logout()" class="nav-link">Sair</a>
+      </li>
     </ul>
   </header>
 

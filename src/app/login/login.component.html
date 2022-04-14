@@ -1,17 +1,21 @@
 <div class="container">
   <div class="row">
-    <div class="col offset-3 col-6 bg-light">
-      <div class="p-3 mb-2 bg-success text-white rounded-top">
+    <div class="col offset-3 col-6 bg-light rounded-top p-3">
+      <div class="h3 mb-3 fw-normal text-center">
         <b>Usuario</b> | Login
       </div>
 
-      <p *ngIf="!isLogged()" class="login-box-msg">Por favor, efetue o login para continuar</p>
+      <p *ngIf="!isLogged()" class="login-box-msg h6 text-center text-danger">Por favor, efetue o login para continuar</p>
 
       <form [formGroup]="formsLogin">
 
         <div class="col form-group">
-          <label for="" class="form-label">Email</label>
-          <input type="text" class="form-control" formControlName="email">
+
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput" formControlName="email" placeholder="email">
+            <label for="floatingInput" class="form-label">Email</label>
+          </div>
+
           <div *ngIf="formsLogin.controls.email.touched">
             <span class="text-danger" *ngIf="formsLogin.controls.email.errors">
               Inválido!
@@ -23,8 +27,11 @@
         </div>
 
         <div class="col form-group">
-          <label for="" class="form-label">Senha</label>
-          <input type="text" class="form-control" formControlName="password">
+          <div class="form-floating mb-2">
+            <input type="text" class="form-control" id="floatingInput" formControlName="password" placeholder="senha">
+            <label for="floatingInput" class="form-label">Senha</label>
+          </div>
+
           <div *ngIf="formsLogin.controls.password.touched">
             <span class="text-danger" *ngIf="formsLogin.controls.password.errors">
               Inválido!
@@ -33,11 +40,17 @@
               Válido!
             </span>
           </div>
+          <div class="checkbox mb-3">
+            <label>
+              <input type="checkbox" value="remember-me"> Lembrar
+            </label>
+          </div>
         </div>
 
-        <button [disabled]="!formsLogin.valid" (click)="login()" type="submit" class="btn btn-primary my-2">Entrar</button>
+        <button [disabled]="!formsLogin.valid" (click)="login()" type="submit" class="w-100 btn btn-lg btn-primary">Entrar</button>
 
       </form>
     </div>
+
   </div>
 </div>

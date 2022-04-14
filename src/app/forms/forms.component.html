@@ -8,8 +8,10 @@
     <div class="row p-2">
 
       <div class="col form-group">
-        <label for="" class="form-label">Nome</label>
-        <input type="text" class="form-control" formControlName="name">
+        <div class="form-floating mb-2">
+          <input type="text" class="form-control" id="nameForm" formControlName="name" placeholder="Nome">
+          <label for="nameForm" class="form-label">Nome</label>
+        </div>
         <div *ngIf="forms.controls.name.touched">
           <span class="text-danger" *ngIf="forms.controls.name.errors">
             Inválido!
@@ -22,8 +24,10 @@
       </div>
 
       <div class="col form-group">
-        <label for="" class="form-label">CPF</label>
-        <input type="text" mask="000.000.000-00" class="form-control" formControlName="cpf">
+        <div class="form-floating mb-2">
+          <input type="text" mask="000.000.000-00" class="form-control" id="cpfForm" formControlName="cpf" placeholder="CPF">
+          <label for="cpfForm" class="form-label">CPF</label>
+        </div>
         <div *ngIf="forms.controls.cpf.touched">
           <span class="text-danger" *ngIf="forms.controls.cpf.errors">
             Inválido!
@@ -35,8 +39,10 @@
       </div>
 
       <div class="col form-group">
-        <label for="" class="form-label">Telefone</label>
-        <input type="text" mask="(00) 00000-0000" class="form-control" formControlName="phone">
+        <div class="form-floating mb-2">
+          <input type="text" mask="(00) 00000-0000" class="form-control" id="phoneForm" formControlName="phone" placeholder="Telefone">
+          <label for="phoneForm" class="form-label">Telefone</label>
+        </div>
         <div *ngIf="forms.controls.phone.touched">
           <span class="text-danger" *ngIf="forms.controls.phone.errors">
             Inválido!
@@ -52,8 +58,10 @@
     <div class="row p-2">
 
       <div class="col form-group">
-        <label for="" class="form-label">Email</label>
-        <input type="text" class="form-control" formControlName="email">
+        <div class="form-floating mb-2">
+          <input type="text" class="form-control" id="emailForm" formControlName="email" placeholder="E-mail">
+          <label for="emailForm" class="form-label">E-mail</label>
+        </div>
         <div *ngIf="forms.controls.email.touched">
           <span class="text-danger" *ngIf="forms.controls.email.errors">
             Inválido!
@@ -68,8 +76,10 @@
     <div class="row p-2">
 
       <div class="col form-group">
-        <label for="" class="form-label">Confirmar Email</label>
-        <input type="text" class="form-control" formControlName="confirmEmail">
+        <div class="form-floating mb-2">
+          <input type="text" class="form-control" id="confirmEmailForm" formControlName="confirmEmail" placeholder="Confirmar E-mail">
+          <label for="confirmEmailForm" class="form-label">Confirmar E-mail</label>
+        </div>
         <div *ngIf="forms.controls.confirmEmail.touched">
           <span class="text-danger" *ngIf="forms.controls.confirmEmail.errors">
             <!-- {{forms.controls.confirmEmail.errors?.Emailsdifferent | json}} -->
@@ -85,8 +95,11 @@
     <div class="row p-2">
 
       <div class="col form-group">
-        <label for="" class="form-label">CEP</label>
-        <input (blur)="consultCEP()" type="text" mask="00000-000" class="form-control" formControlName="cep">
+        <div class="form-floating mb-2">
+          <input (blur)="consultCEP()" mask="00000-000" type="text" class="form-control" id="cepForm" formControlName="cep"
+            placeholder="CEP">
+          <label for="cepForm" class="form-label">CEP</label>
+        </div>
         <div *ngIf="forms.controls.cep.touched">
           <span class="text-danger" *ngIf="forms.controls.cep.errors">
             Inválido!
@@ -97,8 +110,10 @@
         </div>
       </div>
       <div class="col form-group">
-        <label for=" " class=" form-label">Número</label>
-        <input type="text" mask="00000" class="form-control" formControlName="number">
+        <div class="form-floating mb-2">
+          <input type="text" mask="00000" class="form-control" id="numberForm" formControlName="number" placeholder="Número">
+          <label for="numberForm" class="form-label">Número</label>
+        </div>
         <div *ngIf="forms.controls.number.touched">
           <span class="text-danger" *ngIf="forms.controls.number.errors">
             Inválido!
@@ -109,8 +124,10 @@
         </div>
       </div>
       <div class="col form-group">
-        <label for="" class="form-label">Complemento</label>
-        <input type="text" class="form-control" formControlName="complement">
+        <div class="form-floating mb-2">
+          <input type="text" class="form-control" id="complementForm" formControlName="complement" placeholder="Complemento">
+          <label for="complementForm" class="form-label">Complemento</label>
+        </div>
 
       </div>
     </div>
@@ -118,8 +135,10 @@
     <div class="row p-2">
 
       <div class="col form-group">
-        <label for="" class="form-label">Rua</label>
-        <input type="text" class="form-control" formControlName="street">
+        <div class="form-floating mb-2">
+          <input type="text" class="form-control" id="streetForm" formControlName="street" placeholder="Rua">
+          <label for="streetForm" class="form-label">Rua</label>
+        </div>
         <div *ngIf="forms.controls.street.touched">
           <span class="text-danger" *ngIf="forms.controls.street.errors">
             Inválido!
@@ -134,8 +153,10 @@
     <div class="row p-2">
 
       <div class="col form-group">
-        <label for="" class="form-label">Bairro</label>
-        <input type="text" class="form-control" formControlName="district">
+        <div class="form-floating mb-2">
+          <input type="text" class="form-control" id="districtForm" formControlName="district" placeholder="Bairro">
+          <label for="districtForm" class="form-label">Bairro</label>
+        </div>
         <div *ngIf="forms.controls.district.touched">
           <span class="text-danger" *ngIf="forms.controls.district.errors">
             Inválido!
@@ -146,9 +167,10 @@
         </div>
       </div>
       <div class="col form-group">
-        <label for="" class="form-label">Cidade</label>
-        <div class="input-group">
-          <input type="text" class="form-control" formControlName="city">
+
+        <div class="form-floating mb-2">
+          <input type="text" class="form-control" id="cityForm" formControlName="city" placeholder="Cidade">
+          <label for="cityForm" class="form-label">Cidade</label>
         </div>
         <div *ngIf="forms.controls.city.touched">
           <span class="text-danger" *ngIf="forms.controls.city.errors">
@@ -160,9 +182,9 @@
         </div>
       </div>
       <div class="col form-group">
-        <label for="" class="form-label">Estado</label>
-        <div class="input-group">
-          <input type="text" class="form-control" formControlName="states">
+        <div class="form-floating mb-2">
+          <input type="text" class="form-control" id="statesForm" formControlName="states" placeholder="Estado">
+          <label for="statesForm" class="form-label">Estado</label>
         </div>
         <div *ngIf="forms.controls.states.touched">
           <span class="text-danger" *ngIf="forms.controls.states.errors">

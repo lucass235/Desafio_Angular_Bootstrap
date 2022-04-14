@@ -11,7 +11,6 @@ import { CrudService } from './crud.service';
 })
 export class CrudComponent implements OnInit {
   users: DataUser[] = [];
-  logged: boolean = false;
   user: DataUser | undefined;
 
   constructor(
@@ -22,7 +21,6 @@ export class CrudComponent implements OnInit {
 
   ngOnInit(): void {
     this.setUsers();
-    this.logged = this.LoginService.isLogged();
   }
 
   setUsers() {
@@ -39,5 +37,9 @@ export class CrudComponent implements OnInit {
 
   updateUser(id: any) {
     this.route.navigate([`edit/${id}`]);
+  }
+
+  isLogged() {
+    return this.LoginService.isLogged();
   }
 }

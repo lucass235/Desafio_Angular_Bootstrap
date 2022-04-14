@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { LoginService } from './login/login.service';
 
 @Component({
   selector: 'ab-root',
@@ -8,9 +7,5 @@ import { LoginService } from './login/login.service';
 })
 export class AppComponent {
   title = 'dasafioAB';
-  constructor(private loginService: LoginService) {}
-
-  isLogged() {
-    return this.loginService.isLogged();
-  }
+  constructor() {}
 }
