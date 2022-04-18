@@ -86,7 +86,6 @@ export class FormsComponent implements OnInit {
       },
       { validators: [this.checkEmail] }
     );
-
     this.activeRouter.params.subscribe((params) => {
       if (params['id']) {
         this.id = params['id'];
