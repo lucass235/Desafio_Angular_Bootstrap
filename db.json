@@ -44,27 +44,6 @@
     },
     {
       "name": "Lucas dos Santos Amorim Rego",
-      "CPF": "555.555.555-55",
-      "phone": "(55) 81996-4795",
-      "email": "lucass235@gmail.com",
-      "confirmEmail": "lucass235@gmail.com",
-      "CEP": "54580-255",
-      "number": "55555",
-      "complement": "(Lot Ia Gleba I)",
-      "street": "Rua Cinco",
-      "district": "Ponte dos Carvalhos",
-      "city": "Cabo de Santo Agostinho",
-      "states": "PE",
-      "position": "estudante",
-      "technology": [
-        "c"
-      ],
-      "framework": "vue",
-      "neswllet": "sim",
-      "id": 9
-    },
-    {
-      "name": "Lucas dos Santos Amorim Rego",
       "CPF": "55555555555",
       "phone": "55819964795",
       "email": "lucass235@gmail.com",
@@ -104,6 +83,27 @@
       "framework": "vue",
       "neswllet": "sim",
       "id": 11
+    },
+    {
+      "name": "Rhaylene",
+      "CPF": "65870134687",
+      "phone": "81999091048",
+      "email": "rhaylene@gmail.com",
+      "confirmEmail": "rhaylene@gmail.com",
+      "CEP": "54580266",
+      "number": "22",
+      "complement": "(Lot Ilha 2º Etapa)",
+      "street": "Rua S",
+      "district": "Ponte dos Carvalhos",
+      "city": "Cabo de Santo Agostinho",
+      "states": "PE",
+      "position": "estudante",
+      "technology": [
+        "java"
+      ],
+      "framework": "angular",
+      "neswllet": "sim",
+      "id": 12
     }
   ]
 }
