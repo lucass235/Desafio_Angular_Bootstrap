@@ -8,5 +8,6 @@ a {
   color: #ffffff;
 }
 
-header {
+nav {
+  background-color: rgba(85, 85, 107, 0.452);
 }
