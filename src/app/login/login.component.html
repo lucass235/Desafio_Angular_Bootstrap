@@ -12,7 +12,7 @@
         <div class="col form-group">
 
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingInput" formControlName="email" placeholder="email">
+            <input maxlength="50" type="text" class="form-control" id="floatingInput" formControlName="email" placeholder="email">
             <label for="floatingInput" class="form-label">Email</label>
           </div>
 
@@ -28,7 +28,7 @@
 
         <div class="col form-group">
           <div class="form-floating mb-2">
-            <input type="text" class="form-control" id="floatingInput" formControlName="password" placeholder="senha">
+            <input maxlength="50" type="password" class="form-control" id="floatingInput" formControlName="password" placeholder="senha">
             <label for="floatingInput" class="form-label">Senha</label>
           </div>
 
@@ -40,17 +40,15 @@
               Válido!
             </span>
           </div>
+
           <div class="checkbox mb-3">
             <label>
               <input type="checkbox" value="remember-me"> Lembrar
             </label>
           </div>
         </div>
-
         <button [disabled]="!formsLogin.valid" (click)="login()" type="submit" class="w-100 btn btn-lg btn-primary">Entrar</button>
-
       </form>
     </div>
-
   </div>
 </div>
