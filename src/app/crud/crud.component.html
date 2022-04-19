@@ -28,7 +28,7 @@
           <td>{{user.phone | mask: '(00) 00000-0000'}}</td>
           <div *ngIf="isLogged()">
             <button (click)="updateUser(user.id)" class="btn"><i class="fa fa-pencil text-warning" aria-hidden="true"></i></button>
-            <button (click)="deleteUser(user.id)" class="btn"><i class="fa fa-trash text-danger" aria-hidden="true"></i></button>
+            <button (click)="deleteUser(user.id)" class="btn"><i class="fas fa-trash text-danger" aria-hidden="true"></i></button>
           </div>
         </tr>
       </tbody>
