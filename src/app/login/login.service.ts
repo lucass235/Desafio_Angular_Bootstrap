@@ -5,8 +5,6 @@ import { User } from './../models/user.model';
 export class LoginService {
   user!: User;
 
-  constructor() {}
-
   login(user: User) {
     const userMock = new User();
     userMock.email = 'lucas';
