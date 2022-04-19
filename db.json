@@ -104,6 +104,27 @@
       "framework": "angular",
       "neswllet": "sim",
       "id": 12
+    },
+    {
+      "name": "Amorim Rego",
+      "CPF": "66666666666",
+      "phone": "55819964795",
+      "email": "lucass235@gmail.com",
+      "confirmEmail": "lucass235@gmail.com",
+      "CEP": "54580255",
+      "number": "6",
+      "complement": "(Lot Ia Gleba I)",
+      "street": "Rua Cinco",
+      "district": "Ponte dos Carvalhos",
+      "city": "Cabo de Santo Agostinho",
+      "states": "PE",
+      "position": "estudante",
+      "technology": [
+        "c"
+      ],
+      "framework": "vue",
+      "neswllet": "sim",
+      "id": 13
     }
   ]
 }

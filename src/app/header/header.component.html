@@ -13,10 +13,10 @@
               <a [routerLink]="['/crud']" aria-current="page" class="nav-link text-dark">Lista</a>
             </li>
             <li *ngIf="!isLogged()" routerLinkActivate="active" class="nav-item">
-              <a [routerLink]="['/']" class="nav-link">Login</a>
+              <a [routerLink]="['/']" class="nav-link text-dark">Login</a>
             </li>
             <li *ngIf="isLogged()" routerLinkActivate="active" class="nav-item">
-              <a [routerLink]="['/']" (click)="logout()" class="nav-link">Sair</a>
+              <a [routerLink]="['/']" (click)="logout()" class="nav-link text-dark">Sair</a>
             </li>
           </ul>
         </div>

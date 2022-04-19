@@ -1,3 +1,7 @@
 .header-table {
   background-color: rgb(36, 35, 71);
 }
+
+/* td {
+  word-wrap: break-word !important;
+} */

@@ -11,6 +11,7 @@ export class FormsGuard implements CanActivate, CanDeactivate<FormsComponent> {
     if (this.login.isLogged()) {
       return true;
     }
+    alert('Você não está logado!');
     this.router.navigate(['/']);
     return false;
   }

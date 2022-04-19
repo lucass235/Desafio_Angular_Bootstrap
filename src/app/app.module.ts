@@ -7,15 +7,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CrudComponent } from './crud/crud.component';
 import { CrudGuard } from './crud/crud.guard';
-import { CrudService } from './crud/crud.service';
 import { FooterComponent } from './footer/footer.component';
 import { FormsComponent } from './forms/forms.component';
 import { FormsGuard } from './forms/forms.guard';
-import { FormsService } from './forms/forms.service';
 import { HeaderComponent } from './header/header.component';
 import { LoginComponent } from './login/login.component';
 import { LoginService } from './login/login.service';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { HttpService } from './shared/htpp.service';
 
 const maskConfig: Partial<IConfig> = {
   validation: false,
@@ -39,8 +38,7 @@ const maskConfig: Partial<IConfig> = {
     NgxMaskModule.forRoot(maskConfig),
   ],
   providers: [
-    CrudService,
-    FormsService,
+    HttpService,
     FormsGuard,
     CrudGuard,
     LoginService,

@@ -5,7 +5,7 @@ import { AB_API } from 'src/app/models/users.api';
 import { DataUser } from '../models/dataUser';
 
 @Injectable()
-export class FormsService {
+export class HttpService {
   api = AB_API;
   constructor(private http: HttpClient) {}
 
@@ -22,7 +22,16 @@ export class FormsService {
     return this.http.get<DataUser>(`${this.api}/users/${id}`);
   }
 
+  deleteUser(id: number): Observable<DataUser> {
+    const url = `${this.api}/users/${id}`;
+    return this.http.delete<DataUser>(url);
+  }
+
   consultCEP(cep: string) {
     return this.http.get(`https://viacep.com.br/ws/${cep}/json`);
+  }
+
+  getUsers(): Observable<DataUser[]> {
+    return this.http.get<DataUser[]>(`${this.api}/users`);
   }
 }

@@ -7,7 +7,7 @@ import {
 } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DataUser } from '../models/dataUser';
-import { FormsService } from './forms.service';
+import { HttpService } from '../shared/htpp.service';
 
 @Component({
   selector: 'ab-forms',
@@ -24,7 +24,7 @@ export class FormsComponent implements OnInit {
 
   constructor(
     private activeRouter: ActivatedRoute,
-    private formsService: FormsService,
+    private httpService: HttpService,
     private router: Router
   ) {}
 
@@ -89,7 +89,7 @@ export class FormsComponent implements OnInit {
     this.activeRouter.params.subscribe((params) => {
       if (params['id']) {
         this.id = params['id'];
-        this.formsService.getUserId(params['id']).subscribe((response) => {
+        this.httpService.getUserId(params['id']).subscribe((response) => {
           this.fillForms(response);
         });
       }
@@ -99,11 +99,11 @@ export class FormsComponent implements OnInit {
   submit() {
     this.user = this.completForms();
     if (this.id === undefined) {
-      this.formsService.postApi(this.user).subscribe((response) => {
+      this.httpService.postApi(this.user).subscribe((response) => {
         console.log('Usuario  (' + response.id + ') cadastrado!');
       });
     } else {
-      this.formsService.updateUser(this.user).subscribe((response) => {
+      this.httpService.updateUser(this.user).subscribe((response) => {
         console.log('Usuario  (' + response.id + ') editado!');
       });
     }
@@ -157,7 +157,7 @@ export class FormsComponent implements OnInit {
   consultCEP() {
     const cep = this.forms.get('cep').value;
     if (this.forms.get('cep').valid) {
-      this.formsService.consultCEP(cep).subscribe((r: any) => {
+      this.httpService.consultCEP(cep).subscribe((r: any) => {
         this.forms.get('complement').setValue(r.complemento);
         this.forms.get('district').setValue(r.bairro);
         this.forms.get('city').setValue(r.localidade);
