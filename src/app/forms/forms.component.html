@@ -8,49 +8,27 @@
     <div class="row p-2">
 
       <div class="col-md form-group">
-        <div class="form-floating mb-2">
-          <input type="text" class="form-control" id="nameForm" formControlName="name" placeholder="Nome">
-          <label for="nameForm" class="form-label">Nome</label>
-        </div>
-        <div *ngIf="forms.controls.name.touched">
-          <span class="text-danger" *ngIf="forms.controls.name.errors">
-            Inválido!
-          </span>
-          <span class="text-success" *ngIf="!forms.controls.name.errors">
-            Válido!
-          </span>
 
-        </div>
+        <ab-control-error label="Nome" errorMessage="Nome errado">
+          <input [ngClass]="validatorSet('name')" type="text" class="form-control" id="nameForm" formControlName="name" placeholder="Nome">
+        </ab-control-error>
       </div>
 
       <div class="col-md form-group">
-        <div class="form-floating mb-2">
-          <input type="text" mask="000.000.000-00" class="form-control" id="cpfForm" formControlName="cpf" placeholder="CPF">
-          <label for="cpfForm" class="form-label">CPF</label>
-        </div>
-        <div *ngIf="forms.controls.cpf.touched">
-          <span class="text-danger" *ngIf="forms.controls.cpf.errors">
-            Inválido!
-          </span>
-          <span class="text-success" *ngIf="!forms.controls.cpf.errors">
-            Válido!
-          </span>
-        </div>
+
+        <ab-control-error label="CPF" errorMessage="CPF errado!">
+          <input [ngClass]="validatorSet('cpf')" type="text" mask="000.000.000-00" class="form-control" id="cpfForm" formControlName="cpf"
+            placeholder="CPF">
+        </ab-control-error>
+
       </div>
 
       <div class="col-md form-group">
-        <div class="form-floating mb-2">
-          <input type="text" mask="(00) 00000-0000" class="form-control" id="phoneForm" formControlName="phone" placeholder="Telefone">
-          <label for="phoneForm" class="form-label">Telefone</label>
-        </div>
-        <div *ngIf="forms.controls.phone.touched">
-          <span class="text-danger" *ngIf="forms.controls.phone.errors">
-            Inválido!
-          </span>
-          <span class="text-success" *ngIf="!forms.controls.phone.errors">
-            Válido!
-          </span>
-        </div>
+
+        <ab-control-error label="Telefone" errorMessage="telefone errado!">
+          <input [ngClass]="validatorSet('phone')" type="text" mask="(00) 00000-0000" class="form-control" id="phoneForm"
+            formControlName="phone" placeholder="Telefone">
+        </ab-control-error>
       </div>
 
     </div>
@@ -58,198 +36,155 @@
     <div class="row p-2">
 
       <div class="col form-group">
-        <div class="form-floating mb-2">
-          <input type="text" class="form-control" id="emailForm" formControlName="email" placeholder="E-mail">
-          <label for="emailForm" class="form-label">E-mail</label>
-        </div>
-        <div *ngIf="forms.controls.email.touched">
-          <span class="text-danger" *ngIf="forms.controls.email.errors">
-            Inválido!
-          </span>
-          <span class="text-success" *ngIf="!forms.controls.email.errors">
-            Válido!
-          </span>
-        </div>
+        <ab-control-error label="E-mail" errorMessage="E-mail errado!">
+          <input [ngClass]="validatorSet('email')" type="text" class="form-control" id="emailForm" formControlName="email"
+            placeholder="E-mail">
+        </ab-control-error>
       </div>
+
     </div>
 
     <div class="row p-2">
 
       <div class="col form-group">
-        <div class="form-floating mb-2">
-          <input type="text" class="form-control" id="confirmEmailForm" formControlName="confirmEmail" placeholder="Confirmar E-mail">
-          <label for="confirmEmailForm" class="form-label">Confirmar E-mail</label>
-        </div>
-        <div *ngIf="forms.controls.confirmEmail.touched">
-          <span class="text-danger" *ngIf="forms.controls.confirmEmail.errors">
-            <!-- {{forms.controls.confirmEmail.errors?.Emailsdifferent | json}} -->
-            Emails diferente
-          </span>
-          <span class="text-success" *ngIf="!forms.controls.confirmEmail.errors">
-            Válido!
-          </span>
-        </div>
+        <ab-control-error label="Confirmar E-mail" errorMessage="E-mais diferentes!">
+          <input [ngClass]="validatorSet('confirmEmail')" type="text" class="form-control" id="confirmEmailForm"
+            formControlName="confirmEmail" placeholder="Confirmar E-mail">
+        </ab-control-error>
       </div>
+
     </div>
 
     <div class="row p-2">
 
       <div class="col form-group">
-        <div class="form-floating mb-2">
-          <input (blur)="consultCEP()" mask="00000-000" type="text" class="form-control" id="cepForm" formControlName="cep"
-            placeholder="CEP">
-          <label for="cepForm" class="form-label">CEP</label>
-        </div>
-        <div *ngIf="forms.controls.cep.touched">
-          <span class="text-danger" *ngIf="forms.controls.cep.errors">
-            Inválido!
-          </span>
-          <span class="text-success" *ngIf="!forms.controls.cep.errors">
-            Válido!
-          </span>
-        </div>
+        <ab-control-error label="CEP" errorMessage="CEP errado!">
+          <input [ngClass]="validatorSet('cep')" (blur)="consultCEP()" mask="00000-000" type="text" class="form-control" id="cepForm"
+            formControlName="cep" placeholder="CEP">
+        </ab-control-error>
       </div>
+
       <div class="col form-group">
-        <div class="form-floating mb-2">
-          <input type="text" mask="00000" class="form-control" id="numberForm" formControlName="number" placeholder="Número">
-          <label for="numberForm" class="form-label">Número</label>
-        </div>
-        <div *ngIf="forms.controls.number.touched">
-          <span class="text-danger" *ngIf="forms.controls.number.errors">
-            Inválido!
-          </span>
-          <span class="text-success" *ngIf="!forms.controls.number.errors">
-            Válido!
-          </span>
-        </div>
+        <ab-control-error label="Número" errorMessage="Número obrigatório!">
+          <input [ngClass]="validatorSet('number')" type="text" mask="00000" class="form-control" id="numberForm" formControlName="number"
+            placeholder="Número">
+        </ab-control-error>
       </div>
+
       <div class="col-md-4 form-group">
-        <div class="form-floating mb-2">
-          <input type="text" class="form-control" id="complementForm" formControlName="complement" placeholder="Complemento">
-          <label for="complementForm" class="form-label">Complemento</label>
-        </div>
-
+        <ab-control-error label="Complemento">
+          <input [ngClass]="validatorSet('complement')" type="text" class="form-control" id="complementForm" formControlName="complement"
+            placeholder="Complemento">
+        </ab-control-error>
       </div>
+
     </div>
 
     <div class="row p-2">
 
       <div class="col form-group">
-        <div class="form-floating mb-2">
+        <!-- <div class="form-floating mb-2">
           <input type="text" class="form-control" id="streetForm" formControlName="street" placeholder="Rua">
           <label for="streetForm" class="form-label">Rua</label>
-        </div>
-        <div *ngIf="forms.controls.street.touched">
-          <span class="text-danger" *ngIf="forms.controls.street.errors">
-            Inválido!
-          </span>
-          <span class="text-success" *ngIf="!forms.controls.street.errors">
-            Válido!
-          </span>
-        </div>
+        </div> -->
+
+        <ab-control-error label="Rua" errorMessage="Rua obrigatório!">
+          <input [ngClass]="validatorSet('street')" type="text" class="form-control" id="streetForm" formControlName="street"
+            placeholder="Rua">
+        </ab-control-error>
+
       </div>
+
     </div>
 
     <div class="row p-2">
 
       <div class="col-md form-group">
-        <div class="form-floating mb-2">
-          <input type="text" class="form-control" id="districtForm" formControlName="district" placeholder="Bairro">
-          <label for="districtForm" class="form-label">Bairro</label>
-        </div>
-        <div *ngIf="forms.controls.district.touched">
-          <span class="text-danger" *ngIf="forms.controls.district.errors">
-            Inválido!
-          </span>
-          <span class="text-success" *ngIf="!forms.controls.district.errors">
-            Válido!
-          </span>
-        </div>
+        <ab-control-error label="Bairro" errorMessage="Bairro obrigatório!">
+          <input [ngClass]="validatorSet('district')" type="text" class="form-control" id="districtForm" formControlName="district"
+            placeholder="Bairro">
+        </ab-control-error>
       </div>
-      <div class="col-md form-group">
 
-        <div class="form-floating mb-2">
-          <input type="text" class="form-control" id="cityForm" formControlName="city" placeholder="Cidade">
-          <label for="cityForm" class="form-label">Cidade</label>
-        </div>
-        <div *ngIf="forms.controls.city.touched">
-          <span class="text-danger" *ngIf="forms.controls.city.errors">
-            Inválido!
-          </span>
-          <span class="text-success" *ngIf="!forms.controls.city.errors">
-            Válido!
-          </span>
-        </div>
-      </div>
       <div class="col-md form-group">
-        <div class="form-floating mb-2">
-          <input type="text" class="form-control" id="statesForm" formControlName="states" placeholder="Estado">
-          <label for="statesForm" class="form-label">Estado</label>
-        </div>
-        <div *ngIf="forms.controls.states.touched">
-          <span class="text-danger" *ngIf="forms.controls.states.errors">
-            Inválido!
-          </span>
-          <span class="text-success" *ngIf="!forms.controls.states.errors">
-            Válido!
-          </span>
-        </div>
+        <ab-control-error label="Cidade" errorMessage="Cidade obrigatório!">
+          <input [ngClass]="validatorSet('city')" type="text" class="form-control" id="cityForm" formControlName="city"
+            placeholder="Cidade">
+        </ab-control-error>
       </div>
+
+      <div class="col-md form-group">
+        <ab-control-error label="Estado" errorMessage="Estado obrigatório!">
+          <input [ngClass]="validatorSet('states')" type="text" class="form-control" id="statesForm" formControlName="states"
+            placeholder="Estado">
+        </ab-control-error>
+      </div>
+
     </div>
 
     <div class="row p-2">
 
       <div class="col form-group">
-        <label for="" class="form-label">Cargo</label>
-        <div class="input-group">
-          <select class="form-select" formControlName="position">
-            <option selected>Selecione</option>
+        <ab-control-error label="Cargo" errorMessage="Cargo obrigatório!">
+          <select [ngClass]="validatorSet('position')" class="form-select" formControlName="position">
             <option value="estudante">Estudante</option>
             <option value="programador">Programador</option>
+            <option value="suporte">Suporte</option>
           </select>
-        </div>
-        <div *ngIf="forms.controls.position.touched">
-          <span class="text-danger" *ngIf="forms.controls.position.errors">
-            Inválido!
-          </span>
-          <span class="text-success" *ngIf="!forms.controls.position.errors">
-            Válido!
-          </span>
-        </div>
+        </ab-control-error>
       </div>
+
       <div class="col form-group">
         <label for="" class="form-label">Tecnologias</label>
-        <select class="form-select" multiple aria-label="multiple select example" formControlName="technology">
+        <select [ngClass]="validatorSet('technology')" class="form-select" multiple aria-label="Tecnologias" formControlName="technology">
           <option value="node">Node</option>
           <option value="java">JavaScript</option>
           <option value="c">C#</option>
           <option value="sql">SQL</option>
         </select>
       </div>
+
       <div class="col form-group">
         <label for="" class="form-label">Frameworks</label>
 
         <div class="row p-2 ">
-          <!-- * -->
-          <div class="col ">
-            <div class="form-check form-check-inline">
-              <input formControlName="framework" type="radio" name="framework" id="radioOption" class="form-check-input" value="angular">
-              <label class="form-check-label" for="flexRadioDefault1">Angular</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input formControlName="framework" type="radio" name="framework" id="radioOption" class="form-check-input" value="react">
-              <label class="form-check-label" for="flexRadioDefault1">React</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input formControlName="framework" type="radio" name="framework" id="radioOption" class="form-check-input" value="vue">
-              <label class="form-check-label" for="flexRadioDefault1">Vue</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input formControlName="framework" type="radio" name="framework" id="radioOption" class="form-check-input" value="jquery">
-              <label class="form-check-label" for="flexRadioDefault1">jQuery</label>
-            </div>
+
+          <div class="col">
+
+            <ab-control-error errorMessage="framework obrigatório!">
+              <div class="form-check form-check-inline">
+                <input [ngClass]="validatorSet('framework')" formControlName="framework" type="radio" name="framework" id="radioOption"
+                  class="form-check-input" value="angular">
+                <label class="form-check-label" for="flexRadioDefault1">Angular</label>
+              </div>
+            </ab-control-error>
+
+            <ab-control-error errorMessage="framework obrigatório!">
+              <div class="form-check form-check-inline">
+                <input [ngClass]="validatorSet('framework')" formControlName="framework" type="radio" name="framework" id="radioOption"
+                  class="form-check-input" value="react">
+                <label class="form-check-label" for="flexRadioDefault1">React</label>
+              </div>
+            </ab-control-error>
+
+            <ab-control-error errorMessage="framework obrigatório!">
+              <div class="form-check form-check-inline">
+                <input [ngClass]="validatorSet('framework')" formControlName="framework" type="radio" name="framework" id="radioOption"
+                  class="form-check-input" value="vue">
+                <label class="form-check-label" for="flexRadioDefault1">Vue</label>
+              </div>
+            </ab-control-error>
+
+            <ab-control-error errorMessage="framework obrigatório!">
+              <div class="form-check form-check-inline">
+                <input [ngClass]="validatorSet('framework')" formControlName="framework" type="radio" name="framework" id="radioOption"
+                  class="form-check-input" value="jquery">
+                <label class="form-check-label" for="flexRadioDefault1">Jquery</label>
+              </div>
+            </ab-control-error>
 
           </div>
+
         </div>
       </div>
     </div>
@@ -257,27 +192,41 @@
 
       <label for="">Deseja participar da nossa Neswllet?</label>
       <div class="container flex-row d-flex bd-highlight ">
-        <div class="form-check form-check-inline">
-          <input formControlName="neswllet" type="radio" name="neswllet" id="radioOption2" class="form-check-input" value="sim">
-          <label class="form-check-label" for="sim">Sim</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input formControlName="neswllet" type="radio" name="neswllet" id="radioOption2" class="form-check-input" value="nao">
-          <label class="form-check-label" for="nao">Não</label>
-        </div>
+
+        <ab-control-error errorMessage="neswllet obrigatório!">
+          <div class="form-check form-check-inline">
+            <input [ngClass]="validatorSet('neswllet')" formControlName="neswllet" type="radio" name="neswllet" id="radioOption2"
+              class="form-check-input" value="sim">
+            <label class="form-check-label" for="sim">Sim</label>
+          </div>
+        </ab-control-error>
+
+        <ab-control-error errorMessage="neswllet obrigatório!">
+          <div class="form-check form-check-inline">
+            <input [ngClass]="validatorSet('neswllet')" formControlName="neswllet" type="radio" name="neswllet" id="radioOption2"
+              class="form-check-input" value="nao">
+            <label class="form-check-label" for="sim">Não</label>
+          </div>
+        </ab-control-error>
+
       </div>
     </div>
     <div class="row p-2">
-      <div class="col form-check">
-        <input type="checkbox" name="gender" id="gender" class="form-check-input" value="M">
-        <label for="" class="form-check-label">Concorda e aceita os termos de cadastro?</label>
-      </div>
+
+      <ab-control-error errorMessage="framework obrigatório!">
+        <div class="col form-check">
+          <input type="checkbox" name="gender" id="gender" class="form-check-input is-valid" value="M">
+          <label for="" class="form-check-label">Concorda e aceita os termos de cadastro?</label>
+        </div>
+      </ab-control-error>
+
       <div class="row">
         <div class="col">
           <button (click)="submit()" class=" btn btn-success  m-1" type="submit" [disabled]="!forms.valid">Submit</button>
           <button (click)="resetForms()" class="btn btn-outline-success m-1 ">Cancelar</button>
         </div>
       </div>
+
     </div>
   </form>
 

@@ -15,6 +15,7 @@ import { LoginComponent } from './login/login.component';
 import { LoginService } from './login/login.service';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HttpService } from './shared/htpp.service';
+import { ControlErrorComponent } from './control-error/control-error.component';
 
 const maskConfig: Partial<IConfig> = {
   validation: false,
@@ -28,6 +29,7 @@ const maskConfig: Partial<IConfig> = {
     LoginComponent,
     FooterComponent,
     NotFoundComponent,
+    ControlErrorComponent,
   ],
   imports: [
     BrowserModule,

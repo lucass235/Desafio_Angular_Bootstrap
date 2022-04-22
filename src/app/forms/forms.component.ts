@@ -29,6 +29,16 @@ export class FormsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.activeRouter.params.subscribe((params) => {
+      if (params['id']) {
+        this.id = params['id'];
+        this.httpService.getUserId(params['id']).subscribe((response) => {
+          this.user = response;
+          this.fillForms(this.user);
+        });
+      }
+    });
+
     this.forms = new FormGroup(
       {
         name: new FormControl('', {
@@ -86,14 +96,6 @@ export class FormsComponent implements OnInit {
       },
       { validators: [this.checkEmail] }
     );
-    this.activeRouter.params.subscribe((params) => {
-      if (params['id']) {
-        this.id = params['id'];
-        this.httpService.getUserId(params['id']).subscribe((response) => {
-          this.fillForms(response);
-        });
-      }
-    });
   }
 
   submit() {
@@ -175,5 +177,16 @@ export class FormsComponent implements OnInit {
       // control.get('confirmEmail')?.setErrors(null); // setar como valido
       return { Emailsdifferent: true };
     }
+  }
+
+  validatorSet(control: any) {
+    return {
+      'is-valid':
+        this.forms.get(control).valid &&
+        (this.forms.get(control).dirty || this.forms.get(control).touched),
+      'is-invalid':
+        this.forms.get(control).invalid &&
+        (this.forms.get(control).dirty || this.forms.get(control).touched),
+    };
   }
 }

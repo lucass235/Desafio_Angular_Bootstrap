@@ -104,6 +104,48 @@
       "framework": "vue",
       "neswllet": "sim",
       "id": 13
+    },
+    {
+      "name": "Lucas dos Santos Amorim Rego",
+      "CPF": "33333333333",
+      "phone": "55819964795",
+      "email": "lucass235@gmail.com",
+      "confirmEmail": "lucass235@gmail.com",
+      "CEP": "54580255",
+      "number": "5",
+      "complement": "(Lot Ia Gleba I)",
+      "street": "Rua Cinco",
+      "district": "Ponte dos Carvalhos",
+      "city": "Cabo de Santo Agostinho",
+      "states": "PE",
+      "position": "programador",
+      "technology": [
+        "java"
+      ],
+      "framework": "angular",
+      "neswllet": "sim",
+      "id": 14
+    },
+    {
+      "name": "roberto",
+      "CPF": "12455677878",
+      "phone": "81685647258",
+      "email": "roberto@123",
+      "confirmEmail": "roberto@123",
+      "CEP": "54580222",
+      "number": "5",
+      "complement": "(Lot Ia Gleba II)",
+      "street": "Rua Marinete Neves Correia da Silva",
+      "district": "Ponte dos Carvalhos",
+      "city": "Cabo de Santo Agostinho",
+      "states": "PE",
+      "position": "suporte",
+      "technology": [
+        "java"
+      ],
+      "framework": "react",
+      "neswllet": "sim",
+      "id": 15
     }
   ]
 }
