@@ -1,50 +1,8 @@
 {
   "users": [
     {
-      "name": "augusto",
-      "CPF": "55555555555",
-      "phone": "81965485235",
-      "email": "oi@oi",
-      "confirmEmail": "oi@oi",
-      "CEP": "54580255",
-      "number": "55",
-      "complement": "(Lot Ia Gleba I)",
-      "street": "Rua Cinco",
-      "district": "Ponte dos Carvalhos",
-      "city": "Cabo de Santo Agostinho",
-      "states": "PE",
-      "position": "programador",
-      "technology": [
-        "c"
-      ],
-      "framework": "vue",
-      "neswllet": "sim",
-      "id": 4
-    },
-    {
-      "name": "joas",
-      "CPF": "58647954214",
-      "phone": "81695452646",
-      "email": "joas@gmail.com",
-      "confirmEmail": "joas@gmail.com",
-      "CEP": "54705280",
-      "number": "5",
-      "complement": "6565",
-      "street": "Rua Machado de Assis",
-      "district": "Capibaribe",
-      "city": "São Lourenço da Mata",
-      "states": "PE",
-      "position": "programador",
-      "technology": [
-        "c"
-      ],
-      "framework": "angular",
-      "neswllet": "sim",
-      "id": 7
-    },
-    {
       "name": "Lucas dos Santos Amorim Rego",
-      "CPF": "65654845484",
+      "CPF": "09260970407",
       "phone": "55819964795",
       "email": "lucass235@gmail.com",
       "confirmEmail": "lucass235@gmail.com",
@@ -55,85 +13,22 @@
       "district": "Ponte dos Carvalhos",
       "city": "Cabo de Santo Agostinho",
       "states": "PE",
-      "position": "estudante",
+      "position": "programador",
       "technology": [
         "java"
       ],
-      "framework": "vue",
+      "framework": true,
       "neswllet": "sim",
-      "id": 11
+      "id": 1
     },
     {
-      "name": "Rhaylene",
-      "CPF": "65870134687",
+      "name": "Rhaylene de Almeida",
+      "CPF": "54682468426",
       "phone": "81999091048",
       "email": "rhaylene@gmail.com",
       "confirmEmail": "rhaylene@gmail.com",
-      "CEP": "54580266",
-      "number": "22",
-      "complement": "(Lot Ilha 2º Etapa)",
-      "street": "Rua S",
-      "district": "Ponte dos Carvalhos",
-      "city": "Cabo de Santo Agostinho",
-      "states": "PE",
-      "position": "estudante",
-      "technology": [
-        "java"
-      ],
-      "framework": "angular",
-      "neswllet": "sim",
-      "id": 12
-    },
-    {
-      "name": "Amorim Rego",
-      "CPF": "66666666666",
-      "phone": "55819964795",
-      "email": "lucass235@gmail.com",
-      "confirmEmail": "lucass235@gmail.com",
-      "CEP": "54580255",
-      "number": "6",
-      "complement": "(Lot Ia Gleba I)",
-      "street": "Rua Cinco",
-      "district": "Ponte dos Carvalhos",
-      "city": "Cabo de Santo Agostinho",
-      "states": "PE",
-      "position": "estudante",
-      "technology": [
-        "c"
-      ],
-      "framework": "vue",
-      "neswllet": "sim",
-      "id": 13
-    },
-    {
-      "name": "Lucas dos Santos Amorim Rego",
-      "CPF": "33333333333",
-      "phone": "55819964795",
-      "email": "lucass235@gmail.com",
-      "confirmEmail": "lucass235@gmail.com",
-      "CEP": "54580255",
-      "number": "5",
-      "complement": "(Lot Ia Gleba I)",
-      "street": "Rua Cinco",
-      "district": "Ponte dos Carvalhos",
-      "city": "Cabo de Santo Agostinho",
-      "states": "PE",
-      "position": "programador",
-      "technology": [
-        "java"
-      ],
-      "framework": "angular",
-      "neswllet": "sim",
-      "id": 14
-    },
-    {
-      "name": "roberto",
-      "CPF": "12455677878",
-      "phone": "81685647258",
-      "email": "roberto@123",
-      "confirmEmail": "roberto@123",
       "CEP": "54580222",
-      "number": "5",
+      "number": "66",
       "complement": "(Lot Ia Gleba II)",
       "street": "Rua Marinete Neves Correia da Silva",
       "district": "Ponte dos Carvalhos",
@@ -141,11 +36,11 @@
       "states": "PE",
       "position": "suporte",
       "technology": [
-        "java"
+        "node"
       ],
-      "framework": "react",
+      "framework": true,
       "neswllet": "sim",
-      "id": 15
+      "id": 2
     }
   ]
 }

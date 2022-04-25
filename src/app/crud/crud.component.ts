@@ -31,11 +31,15 @@ export class CrudComponent implements OnInit {
   deleteUser(id: any) {
     this.httpService.deleteUser(id).subscribe(() => {
       console.log(`Usuario deletado`);
+      this.setUsers();
     });
   }
 
   updateUser(id: any) {
     this.route.navigate([`edit/${id}`]);
+    this.httpService.getUserId(id).subscribe((r) => {
+      console.log(r);
+    });
   }
 
   isLogged() {

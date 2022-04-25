@@ -27,8 +27,8 @@ const routes: Routes = [
   {
     path: 'forms',
     component: FormsComponent,
-    canActivate: [FormsGuard],
-    canDeactivate: [FormsGuard],
+    // canActivate: [FormsGuard],
+    // canDeactivate: [FormsGuard],
   },
   { path: '**', component: NotFoundComponent },
 ];
