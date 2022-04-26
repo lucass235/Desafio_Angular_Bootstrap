@@ -1,3 +1,10 @@
+import {
+  animate,
+  state,
+  style,
+  transition,
+  trigger,
+} from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataUser } from '../models/dataUser';
@@ -8,9 +15,19 @@ import { HttpService } from './../shared/htpp.service';
   selector: 'ab-crud',
   templateUrl: './crud.component.html',
   styleUrls: ['./crud.component.css'],
+  animations: [
+    trigger('tagState', [
+      state('hidden', style({ opacity: 1 })),
+      transition('* => *', [
+        style({ opacity: 0, transform: 'translate(10px, 20px)' }),
+        animate('600ms 0s ease-in-out'),
+      ]),
+    ]),
+  ],
 })
 export class CrudComponent implements OnInit {
   users: DataUser[] = [];
+  myState = 'hidden';
 
   constructor(
     private httpService: HttpService,
@@ -20,7 +37,12 @@ export class CrudComponent implements OnInit {
 
   ngOnInit(): void {
     this.setUsers();
+    // this.toggleState();
   }
+
+  // toggleState() {
+  //   this.myState = this.myState === 'visible' ? 'hidden' : 'visible';
+  // }
 
   setUsers() {
     this.httpService.getUsers().subscribe((response) => {

@@ -1,10 +1,10 @@
 <div class="container">
 
-  <!-- {{forms.valid | json }} {{forms.value | json}} -->
+  <!-- {{forms.valid | json }} {{forms.value.framework | json}} -->
 
   <label class="h1 d-flex justify-content-center text-primary text-uppercase">Formulário de Usuários</label>
 
-  <form novalidate [formGroup]="forms">
+  <form novalidate [formGroup]="forms" [@tagState]="myState">
     <div class="row p-2">
 
       <div class="col-md form-group">
@@ -153,7 +153,7 @@
 
             <ab-control-error errorMessage="framework obrigatório!">
               <div class="form-check form-check-inline">
-                <input [ngClass]="validatorSet('framework')" formControlName="framework" type="checkbox" name="framework" id="radioOption"
+                <input [ngClass]="validatorSet('framework')" formControlName="framework" type="checkbox" name="framework" id="ckeckAngular"
                   class="form-check-input" value="angular">
                 <label class="form-check-label" for="flexRadioDefault1">Angular</label>
               </div>
@@ -161,7 +161,7 @@
 
             <ab-control-error errorMessage="framework obrigatório!">
               <div class="form-check form-check-inline">
-                <input [ngClass]="validatorSet('framework')" formControlName="framework" type="checkbox" name="framework" id="radioOption"
+                <input [ngClass]="validatorSet('framework')" formControlName="framework" type="checkbox" name="framework" id="ckeckReact"
                   class="form-check-input" value="react">
                 <label class="form-check-label" for="flexRadioDefault1">React</label>
               </div>
@@ -169,7 +169,7 @@
 
             <ab-control-error errorMessage="framework obrigatório!">
               <div class="form-check form-check-inline">
-                <input [ngClass]="validatorSet('framework')" formControlName="framework" type="checkbox" name="framework" id="radioOption"
+                <input [ngClass]="validatorSet('framework')" formControlName="framework" type="checkbox" name="framework" id="ckeckVue"
                   class="form-check-input" value="vue">
                 <label class="form-check-label" for="flexRadioDefault1">Vue</label>
               </div>
@@ -177,7 +177,7 @@
 
             <ab-control-error errorMessage="framework obrigatório!">
               <div class="form-check form-check-inline">
-                <input [ngClass]="validatorSet('framework')" formControlName="framework" type="checkbox" name="framework" id="radioOption"
+                <input [ngClass]="validatorSet('framework')" formControlName="framework" type="checkbox" name="framework" id="ckeckJquery"
                   class="form-check-input" value="jquery">
                 <label class="form-check-label" for="flexRadioDefault1">Jquery</label>
               </div>
@@ -228,6 +228,7 @@
       </div>
 
     </div>
+
   </form>
 
 

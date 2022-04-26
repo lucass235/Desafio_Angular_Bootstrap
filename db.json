@@ -1,27 +1,6 @@
 {
   "users": [
     {
-      "name": "Lucas dos Santos Amorim Rego",
-      "CPF": "09260970407",
-      "phone": "55819964795",
-      "email": "lucass235@gmail.com",
-      "confirmEmail": "lucass235@gmail.com",
-      "CEP": "54580255",
-      "number": "5",
-      "complement": "(Lot Ia Gleba I)",
-      "street": "Rua Cinco",
-      "district": "Ponte dos Carvalhos",
-      "city": "Cabo de Santo Agostinho",
-      "states": "PE",
-      "position": "programador",
-      "technology": [
-        "java"
-      ],
-      "framework": true,
-      "neswllet": "sim",
-      "id": 1
-    },
-    {
       "name": "Rhaylene de Almeida",
       "CPF": "54682468426",
       "phone": "81999091048",
@@ -41,6 +20,48 @@
       "framework": true,
       "neswllet": "sim",
       "id": 2
+    },
+    {
+      "name": "Lucas dos Santos Amorim Rego",
+      "CPF": "09260970407",
+      "phone": "55819964795",
+      "email": "lucass235@gmail.com",
+      "confirmEmail": "lucass235@gmail.com",
+      "CEP": "54580255",
+      "number": "5",
+      "complement": "(Lot Ia Gleba I)",
+      "street": "Rua Cinco",
+      "district": "Ponte dos Carvalhos",
+      "city": "Cabo de Santo Agostinho",
+      "states": "PE",
+      "position": "programador",
+      "technology": [
+        "java"
+      ],
+      "framework": true,
+      "neswllet": "sim",
+      "id": 3
+    },
+    {
+      "name": "Augusto",
+      "CPF": "05998288467",
+      "phone": "81996479569",
+      "email": "augusto@gmail.com",
+      "confirmEmail": "augusto@gmail.com",
+      "CEP": "54580478",
+      "number": "2",
+      "complement": "(Lot Eng Ilha Gleba 2)",
+      "street": "Rua Cinco",
+      "district": "Ponte dos Carvalhos",
+      "city": "Cabo de Santo Agostinho",
+      "states": "PE",
+      "position": "programador",
+      "technology": [
+        "java"
+      ],
+      "framework": true,
+      "neswllet": "sim",
+      "id": 4
     }
   ]
 }

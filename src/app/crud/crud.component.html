@@ -3,12 +3,12 @@
     <div class="d-flex justify-content-between">
       <label for="" class="h3 text-white font-wight-bold">Lista de <strong>Usuários</strong> </label>
       <button *ngIf="isLogged()" routerLinkActive="active" [routerLink]="['/forms']" class="btn btn-success btn-sm"><i
-          class="fa fa-plus-circle" aria-hidden="true"></i><a class="text-reset text-decoration-none"> Adicionar novas
+          class="fa fa-plus-circle" aria-hidden="true"></i> <a class="text-reset text-decoration-none"> Adicionar novas
           pessoas</a></button>
     </div>
   </div>
   <label *ngIf="!isLogged()" class="h6 font-wight-bold text-danger">Faça o login para liberar as funções desabilitadas!</label>
-  <div class="row">
+  <div class="row" [@tagState]="myState">
     <table class="table table-striped">
       <thead class="table-white">
         <tr>
@@ -34,4 +34,5 @@
       </tbody>
     </table>
   </div>
+
 </div>

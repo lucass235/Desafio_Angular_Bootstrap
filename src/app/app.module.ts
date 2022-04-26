@@ -2,9 +2,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IConfig, NgxMaskModule } from 'ngx-mask';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ControlErrorComponent } from './control-error/control-error.component';
 import { CrudComponent } from './crud/crud.component';
 import { CrudGuard } from './crud/crud.guard';
 import { FooterComponent } from './footer/footer.component';
@@ -15,7 +17,6 @@ import { LoginComponent } from './login/login.component';
 import { LoginService } from './login/login.service';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HttpService } from './shared/htpp.service';
-import { ControlErrorComponent } from './control-error/control-error.component';
 
 const maskConfig: Partial<IConfig> = {
   validation: false,
@@ -38,6 +39,7 @@ const maskConfig: Partial<IConfig> = {
     FormsModule,
     HttpClientModule,
     NgxMaskModule.forRoot(maskConfig),
+    BrowserAnimationsModule,
   ],
   providers: [
     HttpService,

@@ -1,3 +1,10 @@
+import {
+  animate,
+  state,
+  style,
+  transition,
+  trigger,
+} from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -8,9 +15,19 @@ import { LoginService } from './login.service';
   selector: 'ab-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
+  animations: [
+    trigger('tagState', [
+      state('hidden', style({ opacity: 1 })),
+      transition('* => *', [
+        style({ opacity: 0, transform: 'translate(10px, 20px)' }),
+        animate('600ms 0s ease-in-out'),
+      ]),
+    ]),
+  ],
 })
 export class LoginComponent implements OnInit {
   formsLogin: FormGroup | any;
+  myState = 'hidden';
 
   constructor(private loginService: LoginService, private router: Router) {}
 

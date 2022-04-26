@@ -1,3 +1,10 @@
+import {
+  animate,
+  state,
+  style,
+  transition,
+  trigger,
+} from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import {
   AbstractControl,
@@ -13,12 +20,19 @@ import { HttpService } from '../shared/htpp.service';
   selector: 'ab-forms',
   templateUrl: './forms.component.html',
   styleUrls: ['./forms.component.css'],
+  animations: [
+    trigger('tagState', [
+      state('hidden', style({ opacity: 1 })),
+      transition('* => *', [
+        style({ opacity: 0, transform: 'translate(10px, 20px)' }),
+        animate('600ms 0s ease-in-out'),
+      ]),
+    ]),
+  ],
 })
 export class FormsComponent implements OnInit {
   public forms: FormGroup | any;
-
-  // equalEmails: boolean | undefined;
-
+  myState = 'hidden';
   user: DataUser | undefined;
   id: number | undefined;
 
@@ -64,7 +78,6 @@ export class FormsComponent implements OnInit {
         confirmEmail: new FormControl('', {
           validators: [Validators.email, Validators.required],
         }),
-        adress: new FormGroup({}),
         cep: new FormControl('', {
           validators: [Validators.required, Validators.minLength(8)],
         }),
@@ -98,6 +111,9 @@ export class FormsComponent implements OnInit {
         neswllet: new FormControl('', {
           validators: [Validators.required],
         }),
+        // address: new FormGroup({
+        //   teste: new FormControl(''),
+        // }),
       },
       { validators: [this.checkEmail] }
     );
@@ -245,5 +261,14 @@ export class FormsComponent implements OnInit {
         this.forms.get(control).invalid &&
         (this.forms.get(control).dirty || this.forms.get(control).touched),
     };
+  }
+
+  testeSet() {
+    this.forms.patchValue({
+      adress: {
+        teste: 'oi sou lucas!',
+      },
+    });
+    console.log('Setouuuuuuu!!!!');
   }
 }
