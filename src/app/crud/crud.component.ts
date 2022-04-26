@@ -37,12 +37,7 @@ export class CrudComponent implements OnInit {
 
   ngOnInit(): void {
     this.setUsers();
-    // this.toggleState();
   }
-
-  // toggleState() {
-  //   this.myState = this.myState === 'visible' ? 'hidden' : 'visible';
-  // }
 
   setUsers() {
     this.httpService.getUsers().subscribe((response) => {
