@@ -4,6 +4,15 @@ export interface DataUser {
   phone: number;
   email: string;
   confirmEmail: string;
+  address: Address;
+  position: string;
+  technology: string;
+  framework: boolean[];
+  neswllet: string;
+  id?: number;
+}
+
+interface Address {
   CEP: number;
   number: number;
   complement: string;
@@ -11,9 +20,4 @@ export interface DataUser {
   district: string;
   city: string;
   states: string;
-  position: string;
-  technology: string;
-  framework: string;
-  neswllet: string;
-  id?: number;
 }

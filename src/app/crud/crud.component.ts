@@ -54,9 +54,7 @@ export class CrudComponent implements OnInit {
 
   updateUser(id: any) {
     this.route.navigate([`edit/${id}`]);
-    this.httpService.getUserId(id).subscribe((r) => {
-      console.log(r);
-    });
+    this.httpService.getUserId(id).subscribe((r) => {});
   }
 
   isLogged() {

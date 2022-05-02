@@ -24,7 +24,7 @@
         <tr>
           <td>{{user.name}}</td>
           <td>{{user.email}}</td>
-          <td>{{user.number}}, {{user.district}}, {{user.city}}, {{user.states}} </td>
+          <td>{{user.address.number}}, {{user.address.district}}, {{user.address.city}}, {{user.address.states}} </td>
           <td>{{user.phone | mask: '(00) 00000-0000'}}</td>
           <div *ngIf="isLogged()">
             <button (click)="updateUser(user.id)" class="btn"><i class="fa fa-pencil text-warning" aria-hidden="true"></i></button>

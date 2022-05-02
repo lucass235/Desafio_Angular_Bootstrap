@@ -44,7 +44,6 @@ export class LoginComponent implements OnInit {
     let user: User = new User();
     user.email = this.formsLogin.get('email').value;
     user.password = this.formsLogin.get('password').value;
-    console.log(user);
 
     if (this.loginService.login(user)) {
       this.router.navigate(['/crud']);

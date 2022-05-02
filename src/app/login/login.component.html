@@ -12,8 +12,8 @@
         <div class="col form-group">
 
           <div class="form-floating mb-3">
-            <input maxlength="50" type="text" class="form-control" id="floatingInput" formControlName="email" placeholder="email">
-            <label for="floatingInput" class="form-label">Email</label>
+            <input maxlength="50" type="text" class="form-control" id="emailInput" formControlName="email" placeholder="email">
+            <label for="emailInput" class="form-label">Email</label>
           </div>
 
           <div *ngIf="formsLogin.controls.email.touched">
@@ -28,8 +28,8 @@
 
         <div class="col form-group">
           <div class="form-floating mb-2">
-            <input maxlength="50" type="password" class="form-control" id="floatingInput" formControlName="password" placeholder="senha">
-            <label for="floatingInput" class="form-label">Senha</label>
+            <input maxlength="50" type="password" class="form-control" id="passwordInput" formControlName="password" placeholder="senha">
+            <label for="passwordInput" class="form-label">Senha</label>
           </div>
 
           <div *ngIf="formsLogin.controls.password.touched">

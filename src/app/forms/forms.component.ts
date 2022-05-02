@@ -105,15 +105,21 @@ export class FormsComponent implements OnInit {
         street: new FormControl('', {
           validators: [Validators.required],
         }),
-        framework: new FormControl('', {
-          validators: [Validators.required],
-        }),
+        framework: new FormGroup(
+          {
+            angular: new FormControl(false),
+            react: new FormControl(false),
+            vue: new FormControl(false),
+            jquery: new FormControl(false),
+          },
+          { validators: this.checkFrameworks }
+        ),
         neswllet: new FormControl('', {
           validators: [Validators.required],
         }),
-        // address: new FormGroup({
-        //   teste: new FormControl(''),
-        // }),
+        terms: new FormControl('', {
+          validators: [Validators.required],
+        }),
       },
       { validators: [this.checkEmail] }
     );
@@ -138,13 +144,13 @@ export class FormsComponent implements OnInit {
     this.forms.get('cpf').setValue(values?.CPF);
     this.forms.get('phone').setValue(values?.phone);
     this.forms.get('email').setValue(values?.email);
-    this.forms.get('cep').setValue(values?.CEP);
-    this.forms.get('number').setValue(values?.number);
-    this.forms.get('complement').setValue(values?.complement);
-    this.forms.get('street').setValue(values?.street);
-    this.forms.get('states').setValue(values?.states);
-    this.forms.get('city').setValue(values?.city);
-    this.forms.get('district').setValue(values?.district);
+    this.forms.get('cep').setValue(values?.address.CEP);
+    this.forms.get('number').setValue(values?.address.number);
+    this.forms.get('complement').setValue(values?.address.complement);
+    this.forms.get('street').setValue(values?.address.street);
+    this.forms.get('states').setValue(values?.address.states);
+    this.forms.get('city').setValue(values?.address.city);
+    this.forms.get('district').setValue(values?.address.district);
     this.forms.get('position').setValue(values?.position);
     this.forms.get('technology').setValue(values?.technology);
     this.forms.get('framework').setValue(values?.framework);
@@ -161,13 +167,15 @@ export class FormsComponent implements OnInit {
       phone: this.forms.value.phone,
       email: this.forms.value.email,
       confirmEmail: this.forms.value.confirmEmail,
-      CEP: this.forms.value.cep,
-      number: this.forms.value.number,
-      complement: this.forms.value.complement,
-      street: this.forms.value.street,
-      district: this.forms.value.district,
-      city: this.forms.value.city,
-      states: this.forms.value.states,
+      address: {
+        CEP: this.forms.value.cep,
+        number: this.forms.value.number,
+        complement: this.forms.value.complement,
+        street: this.forms.value.street,
+        district: this.forms.value.district,
+        city: this.forms.value.city,
+        states: this.forms.value.states,
+      },
       position: this.forms.value.position,
       technology: this.forms.value.technology,
       framework: this.forms.value.framework,
@@ -197,6 +205,20 @@ export class FormsComponent implements OnInit {
       control.get('confirmEmail')?.setErrors({ Emailsdifferent: true });
       // control.get('confirmEmail')?.setErrors(null); // setar como valido
       return { Emailsdifferent: true };
+    }
+  }
+
+  checkFrameworks(control: AbstractControl) {
+    let check: boolean = false;
+    Object.keys(control.value).forEach((i) => {
+      if (control.value[i]) {
+        check = true;
+      }
+    });
+    if (check) {
+      return null;
+    } else {
+      return { frameworksInvalid: true };
     }
   }
 
@@ -261,14 +283,5 @@ export class FormsComponent implements OnInit {
         this.forms.get(control).invalid &&
         (this.forms.get(control).dirty || this.forms.get(control).touched),
     };
-  }
-
-  testeSet() {
-    this.forms.patchValue({
-      adress: {
-        teste: 'oi sou lucas!',
-      },
-    });
-    console.log('Setouuuuuuu!!!!');
   }
 }
