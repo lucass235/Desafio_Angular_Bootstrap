@@ -35,6 +35,8 @@ export class FormsComponent implements OnInit {
   myState = 'hidden';
   user: DataUser | undefined;
   id: number | undefined;
+  cepInvalid: boolean = false;
+  districtActive: any = true;
 
   constructor(
     private activeRouter: ActivatedRoute,
@@ -186,16 +188,31 @@ export class FormsComponent implements OnInit {
   }
 
   consultCEP() {
-    const cep = this.forms.get('cep').value;
+    let cep = this.forms.get('cep').value;
+
     if (this.forms.get('cep').valid) {
       this.httpService.consultCEP(cep).subscribe((r: any) => {
-        this.forms.get('complement').setValue(r.complemento);
-        this.forms.get('district').setValue(r.bairro);
-        this.forms.get('city').setValue(r.localidade);
-        this.forms.get('street').setValue(r.logradouro);
-        this.forms.get('states').setValue(r.uf);
+        if ('erro' in r) {
+          this.cepInvalid = true;
+          this.forms.get('cep')?.setErrors({ cepInValid: true });
+        } else {
+          this.forms.get('complement').setValue(r.complemento);
+          this.forms.get('district').setValue(r.bairro);
+          this.forms.get('city').setValue(r.localidade);
+          this.forms.get('street').setValue(r.logradouro);
+          this.forms.get('states').setValue(r.uf);
+        }
       });
     }
+
+    if (this.forms.get('cep').invalid || this.cepInvalid) {
+      this.forms.get('complement').reset();
+      this.forms.get('district').reset();
+      this.forms.get('city').reset();
+      this.forms.get('states').reset();
+      this.forms.get('street').reset();
+    }
+    this.activeDistrict();
   }
 
   checkEmail(control: AbstractControl) {
@@ -283,5 +300,48 @@ export class FormsComponent implements OnInit {
         this.forms.get(control).invalid &&
         (this.forms.get(control).dirty || this.forms.get(control).touched),
     };
+  }
+
+  setDisabled(control: any) {
+    if (
+      (this.forms.get(control).value && this.forms.get('cep').valid) ||
+      this.forms.get('cep').invalid
+    ) {
+      return true;
+    }
+    return null;
+  }
+
+  activeDistrict() {
+    if (
+      this.forms.get('cep').valid &&
+      this.forms.get('district').value === null
+    ) {
+      console.log('1');
+      console.log('cep: ' + this.forms.get('cep').valid);
+      console.log('bairro: ' + this.forms.get('district').value);
+
+      this.districtActive = null; // desabilita
+    } else if (
+      this.forms.get('cep').valid &&
+      this.forms.get('district').value
+    ) {
+      console.log('2');
+      console.log('cep: ' + this.forms.get('cep').valid);
+      console.log('bairro: ' + this.forms.get('district').value);
+
+      this.districtActive = null;
+    } else {
+      console.log('3');
+      console.log('cep: ' + this.forms.get('cep').valid);
+      console.log('bairro: ' + this.forms.get('district').value);
+
+      this.districtActive = true;
+    }
+    // if (this.forms.get('cep').invalid) {
+    //   console.log('3');
+
+    //   this.districtActive = true; // desabilita
+    // }
   }
 }

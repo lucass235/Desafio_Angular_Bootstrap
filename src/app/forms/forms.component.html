@@ -9,14 +9,14 @@
 
       <div class="col-md form-group">
 
-        <ab-control-error label="Nome" errorMessage="Nome errado">
+        <ab-control-error label="Nome" errorMessage="Nome inválido">
           <input [ngClass]="validatorSet('name')" type="text" class="form-control" id="nameForm" formControlName="name" placeholder="Nome">
         </ab-control-error>
       </div>
 
       <div class="col-md form-group">
 
-        <ab-control-error label="CPF" errorMessage="CPF errado!">
+        <ab-control-error label="CPF" errorMessage="CPF inválido!">
           <input [ngClass]="validatorSet('cpf')" type="text" mask="000.000.000-00" class="form-control" id="cpfForm" formControlName="cpf"
             placeholder="CPF">
         </ab-control-error>
@@ -25,7 +25,7 @@
 
       <div class="col-md form-group">
 
-        <ab-control-error label="Telefone" errorMessage="telefone errado!">
+        <ab-control-error label="Telefone" errorMessage="telefone inválido!">
           <input [ngClass]="validatorSet('phone')" type="text" mask="(00) 00000-0000" class="form-control" id="phoneForm"
             formControlName="phone" placeholder="Telefone">
         </ab-control-error>
@@ -36,7 +36,7 @@
     <div class="row p-2">
 
       <div class="col form-group">
-        <ab-control-error label="E-mail" errorMessage="E-mail errado!">
+        <ab-control-error label="E-mail" errorMessage="E-mail inválido!">
           <input [ngClass]="validatorSet('email')" type="text" class="form-control" id="emailForm" formControlName="email"
             placeholder="E-mail">
         </ab-control-error>
@@ -58,7 +58,7 @@
     <div class="row p-2">
 
       <div class="col form-group">
-        <ab-control-error label="CEP" errorMessage="CEP errado!">
+        <ab-control-error label="CEP" errorMessage="CEP inválido!">
           <input [ngClass]="validatorSet('cep')" (blur)="consultCEP()" mask="00000-000" type="text" class="form-control" id="cepForm"
             formControlName="cep" placeholder="CEP">
         </ab-control-error>
@@ -101,22 +101,22 @@
 
       <div class="col-md form-group">
         <ab-control-error label="Bairro" errorMessage="Bairro obrigatório!">
-          <input [ngClass]="validatorSet('district')" type="text" class="form-control" id="districtForm" formControlName="district"
-            placeholder="Bairro">
+          <input [attr.disabled]="districtActive" [ngClass]="validatorSet('district')" type="text" class="form-control" id="districtForm"
+            formControlName="district" placeholder="Bairro">
         </ab-control-error>
       </div>
 
       <div class="col-md form-group">
         <ab-control-error label="Cidade" errorMessage="Cidade obrigatório!">
-          <input [ngClass]="validatorSet('city')" type="text" class="form-control" id="cityForm" formControlName="city"
-            placeholder="Cidade">
+          <input [attr.disabled]="setDisabled('city')" [ngClass]="validatorSet('city')" type="text" class="form-control" id="cityForm"
+            formControlName="city" placeholder="Cidade">
         </ab-control-error>
       </div>
 
       <div class="col-md form-group">
         <ab-control-error label="Estado" errorMessage="Estado obrigatório!">
-          <input [ngClass]="validatorSet('states')" type="text" class="form-control" id="statesForm" formControlName="states"
-            placeholder="Estado">
+          <input [attr.disabled]="true" [ngClass]="validatorSet('states')" type="text" class="form-control" id="statesForm"
+            formControlName="states" placeholder="Estado">
         </ab-control-error>
       </div>
 

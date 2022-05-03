@@ -3,7 +3,8 @@ import { User } from './../models/user.model';
 
 @Injectable()
 export class LoginService {
-  user!: User;
+  // user!: User;
+  public email: string = 'lucas';
 
   login(user: User) {
     const userMock = new User();
@@ -11,20 +12,21 @@ export class LoginService {
     userMock.password = '123';
 
     if (userMock.email === user.email && userMock.password === user.password) {
-      this.user = user;
+      // this.user = user;
+      window.sessionStorage.setItem(user.email, user.password); // guarda dados na sessionStore
       return true;
     }
     return false;
   }
 
   isLogged() {
-    if (this.user && this.user.email) {
+    if (window.sessionStorage.length) {
       return true;
     }
     return false;
   }
 
   logout() {
-    this.user = {};
+    window.sessionStorage.removeItem(this.email);
   }
 }

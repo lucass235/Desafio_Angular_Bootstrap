@@ -27,7 +27,7 @@ export class HttpService {
     return this.http.delete<DataUser>(url);
   }
 
-  consultCEP(cep: string) {
+  consultCEP(cep: string): Observable<any> {
     return this.http.get(`https://viacep.com.br/ws/${cep}/json`);
   }
 

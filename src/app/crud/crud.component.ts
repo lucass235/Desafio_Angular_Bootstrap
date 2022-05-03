@@ -57,7 +57,8 @@ export class CrudComponent implements OnInit {
     this.httpService.getUserId(id).subscribe((r) => {});
   }
 
-  isLogged() {
+  checkLogged() {
+    // return this.LoginService.isLogged();
     return this.LoginService.isLogged();
   }
 }

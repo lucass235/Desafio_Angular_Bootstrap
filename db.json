@@ -55,6 +55,62 @@
       },
       "neswllet": "sim",
       "id": 2
+    },
+    {
+      "name": "Augusto",
+      "CPF": "09260970407",
+      "phone": "81963548724",
+      "email": "gustinho@gmail.com",
+      "confirmEmail": "gustinho@gmail.com",
+      "address": {
+        "CEP": "54580478",
+        "number": "33",
+        "complement": "(Lot Eng Ilha Gleba 2)",
+        "street": "Rua Cinco",
+        "district": "Ponte dos Carvalhos",
+        "city": "Cabo de Santo Agostinho",
+        "states": "PE"
+      },
+      "position": "programador",
+      "technology": [
+        "java"
+      ],
+      "framework": {
+        "angular": true,
+        "react": false,
+        "vue": true,
+        "jquery": false
+      },
+      "neswllet": "sim",
+      "id": 3
+    },
+    {
+      "name": "Gelado",
+      "CPF": "09260970407",
+      "phone": "98165545454",
+      "email": "geladinho@gmail.com",
+      "confirmEmail": "geladinho@gmail.com",
+      "address": {
+        "CEP": "54580255",
+        "number": "11",
+        "complement": "(Lot Ia Gleba I)",
+        "street": "Rua Cinco",
+        "district": "Ponte dos Carvalhos",
+        "city": "Cabo de Santo Agostinho",
+        "states": "PE"
+      },
+      "position": "suporte",
+      "technology": [
+        "c"
+      ],
+      "framework": {
+        "angular": false,
+        "react": false,
+        "vue": false,
+        "jquery": true
+      },
+      "neswllet": "nao",
+      "id": 4
     }
   ]
 }

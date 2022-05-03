@@ -2,12 +2,12 @@
   <div class="row header-table p-2 mb-2 mt-3 rounded-top">
     <div class="d-flex justify-content-between">
       <label for="" class="h3 text-white font-wight-bold">Lista de <strong>Usuários</strong> </label>
-      <button *ngIf="isLogged()" routerLinkActive="active" [routerLink]="['/forms']" class="btn btn-success btn-sm"><i
+      <button *ngIf="checkLogged()" routerLinkActive="active" [routerLink]="['/forms']" class="btn btn-success btn-sm"><i
           class="fa fa-plus-circle" aria-hidden="true"></i> <a class="text-reset text-decoration-none"> Adicionar novas
           pessoas</a></button>
     </div>
   </div>
-  <label *ngIf="!isLogged()" class="h6 font-wight-bold text-danger">Faça o login para liberar as funções desabilitadas!</label>
+  <label *ngIf="!checkLogged()" class="h6 font-wight-bold text-danger">Faça o login para liberar as funções desabilitadas!</label>
   <div class="row" [@tagState]="myState">
     <table class="table table-striped">
       <thead class="table-white">
@@ -16,7 +16,7 @@
           <th>E-mail</th>
           <th>Endereço</th>
           <th>Telefone</th>
-          <th *ngIf="isLogged()">Ações</th>
+          <th *ngIf="checkLogged()">Ações</th>
 
         </tr>
       </thead>
@@ -26,7 +26,7 @@
           <td>{{user.email}}</td>
           <td>{{user.address.number}}, {{user.address.district}}, {{user.address.city}}, {{user.address.states}} </td>
           <td>{{user.phone | mask: '(00) 00000-0000'}}</td>
-          <div *ngIf="isLogged()">
+          <div *ngIf="checkLogged()">
             <button (click)="updateUser(user.id)" class="btn"><i class="fa fa-pencil text-warning" aria-hidden="true"></i></button>
             <button (click)="deleteUser(user.id)" class="btn"><i class="fas fa-trash text-danger" aria-hidden="true"></i></button>
           </div>

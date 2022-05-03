@@ -8,7 +8,7 @@ export class FormsGuard implements CanActivate, CanDeactivate<FormsComponent> {
   constructor(private login: LoginService, private router: Router) {}
 
   canActivate(): boolean {
-    if (this.login.isLogged()) {
+    if (window.sessionStorage.getItem('lucas')) {
       return true;
     }
     alert('Você não está logado!');
