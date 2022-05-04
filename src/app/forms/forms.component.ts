@@ -201,8 +201,11 @@ export class FormsComponent implements OnInit {
           this.forms.get('city').setValue(r.localidade);
           this.forms.get('street').setValue(r.logradouro);
           this.forms.get('states').setValue(r.uf);
+          this.activeDistrict();
         }
       });
+    } else {
+      this.districtActive = true;
     }
 
     if (this.forms.get('cep').invalid || this.cepInvalid) {
@@ -212,7 +215,6 @@ export class FormsComponent implements OnInit {
       this.forms.get('states').reset();
       this.forms.get('street').reset();
     }
-    this.activeDistrict();
   }
 
   checkEmail(control: AbstractControl) {
@@ -313,35 +315,10 @@ export class FormsComponent implements OnInit {
   }
 
   activeDistrict() {
-    if (
-      this.forms.get('cep').valid &&
-      this.forms.get('district').value === null
-    ) {
-      console.log('1');
-      console.log('cep: ' + this.forms.get('cep').valid);
-      console.log('bairro: ' + this.forms.get('district').value);
-
-      this.districtActive = null; // desabilita
-    } else if (
-      this.forms.get('cep').valid &&
-      this.forms.get('district').value
-    ) {
-      console.log('2');
-      console.log('cep: ' + this.forms.get('cep').valid);
-      console.log('bairro: ' + this.forms.get('district').value);
-
-      this.districtActive = null;
-    } else {
-      console.log('3');
-      console.log('cep: ' + this.forms.get('cep').valid);
-      console.log('bairro: ' + this.forms.get('district').value);
-
+    if (this.forms.get('district').value) {
       this.districtActive = true;
+    } else {
+      this.districtActive = null;
     }
-    // if (this.forms.get('cep').invalid) {
-    //   console.log('3');
-
-    //   this.districtActive = true; // desabilita
-    // }
   }
 }
