@@ -28,6 +28,7 @@ import { HttpService } from './../shared/htpp.service';
 export class CrudComponent implements OnInit {
   users: DataUser[] = [];
   myState = 'hidden';
+  userLocalStore!: DataUser;
 
   constructor(
     private httpService: HttpService,

@@ -113,46 +113,18 @@
       "id": 4
     },
     {
-      "name": "Lucas dos Santos Amorim Rego",
-      "CPF": "09260970407",
-      "phone": "55819964795",
-      "email": "lucass235@gmail.com",
-      "confirmEmail": "lucass235@gmail.com",
+      "name": "Ewrverton",
+      "CPF": "05998288467",
+      "phone": "81966857725",
+      "email": "ewverton@gmail.com",
+      "confirmEmail": "ewverton@gmail.com",
       "address": {
-        "CEP": "54580255",
-        "number": "3",
-        "complement": "(Lot Ia Gleba I)",
-        "street": "Rua cinco, número 58",
-        "district": "Ponte dos Carvalhos",
-        "city": "Cabo de Santo Agostinho",
-        "states": "PE"
-      },
-      "position": "programador",
-      "technology": [
-        "java"
-      ],
-      "framework": {
-        "angular": false,
-        "react": true,
-        "vue": false,
-        "jquery": false
-      },
-      "neswllet": "sim",
-      "id": 5
-    },
-    {
-      "name": "Lucas dos Santos Amorim Rego",
-      "CPF": "09260970407",
-      "phone": "55819964795",
-      "email": "lucass235@gmail.com",
-      "confirmEmail": "lucass235@gmail.com",
-      "address": {
-        "CEP": "54580255",
-        "number": "2",
-        "complement": "(Lot Ia Gleba I)",
-        "street": "Rua Cinco",
-        "district": "Ponte dos Carvalhos",
-        "city": "Cabo de Santo Agostinho",
+        "CEP": "50050290",
+        "number": "88",
+        "complement": "de 1 a 99999 - lado ímpar",
+        "street": "Avenida Governador Agamenon Magalhães",
+        "district": "Boa Vista",
+        "city": "Recife",
         "states": "PE"
       },
       "position": "programador",
@@ -161,12 +133,12 @@
       ],
       "framework": {
         "angular": true,
-        "react": false,
-        "vue": false,
-        "jquery": false
+        "react": true,
+        "vue": true,
+        "jquery": true
       },
       "neswllet": "sim",
-      "id": 6
+      "id": 5
     }
   ]
 }

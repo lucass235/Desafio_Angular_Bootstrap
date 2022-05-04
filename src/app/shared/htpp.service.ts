@@ -34,4 +34,8 @@ export class HttpService {
   getUsers(): Observable<DataUser[]> {
     return this.http.get<DataUser[]>(`${this.api}/users`);
   }
+
+  getStates() {
+    return this.http.get('../../assets/datas/estados-brasileiros.json');
+  }
 }

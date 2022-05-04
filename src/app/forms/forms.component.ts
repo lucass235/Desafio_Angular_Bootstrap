@@ -38,6 +38,7 @@ export class FormsComponent implements OnInit {
   id: number | undefined;
   cepInvalid: boolean = false;
   districtActive: any = true;
+  states: any;
   frameworks: Framework[] = [
     {
       name: 'Angular',
@@ -72,6 +73,10 @@ export class FormsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.httpService.getStates().subscribe((r) => {
+      this.states = r;
+      console.log(this.states);
+    });
     this.activeRouter.params.subscribe((params) => {
       if (params['id']) {
         this.id = params['id'];

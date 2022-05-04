@@ -111,8 +111,12 @@
 
       <div class="col-md form-group">
         <ab-control-error label="Estado" errorMessage="Estado obrigatório!">
-          <input [attr.disabled]="true" [ngClass]="validatorSet('states')" type="text" class="form-control" id="statesForm"
-            formControlName="states" placeholder="Estado">
+          <!-- <input [attr.disabled]="true" [ngClass]="validatorSet('states')" type="text" class="form-control" id="statesForm"
+            formControlName="states" placeholder="Estado"> -->
+          <select [attr.disabled]="setDisabled('states')" [ngClass]="validatorSet('states')" class="form-select" formControlName="states">
+            <option *ngFor="let state of states" [value]="state.sigla">{{state.nome}}</option>
+
+          </select>
         </ab-control-error>
       </div>
 
