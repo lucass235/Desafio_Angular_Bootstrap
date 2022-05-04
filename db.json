@@ -167,34 +167,6 @@
       },
       "neswllet": "sim",
       "id": 6
-    },
-    {
-      "name": "LUCAS DOS SANTOS AMORIM REGO",
-      "CPF": "09260970407",
-      "phone": "81996479569",
-      "email": "lucass235@gmail.com",
-      "confirmEmail": "lucass235@gmail.com",
-      "address": {
-        "CEP": "54580478",
-        "number": "2",
-        "complement": "(Lot Eng Ilha Gleba 2)",
-        "street": "Rua Cinco",
-        "district": "Ponte dos Carvalhos",
-        "city": "Cabo de Santo Agostinho",
-        "states": "PE"
-      },
-      "position": "suporte",
-      "technology": [
-        "c"
-      ],
-      "framework": {
-        "angular": false,
-        "react": false,
-        "vue": false,
-        "jquery": true
-      },
-      "neswllet": "sim",
-      "id": 7
     }
   ]
 }

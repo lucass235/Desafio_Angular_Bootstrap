@@ -8,7 +8,7 @@ export class LoginService {
 
   login(user: User) {
     const userMock = new User();
-    userMock.email = 'lucas';
+    userMock.email = this.email;
     userMock.password = '123';
 
     if (userMock.email === user.email && userMock.password === user.password) {

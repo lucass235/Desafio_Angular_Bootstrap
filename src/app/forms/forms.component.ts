@@ -14,6 +14,7 @@ import {
 } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DataUser } from '../models/dataUser';
+import { Framework } from '../models/framework.model';
 import { HttpService } from '../shared/htpp.service';
 
 @Component({
@@ -37,6 +38,32 @@ export class FormsComponent implements OnInit {
   id: number | undefined;
   cepInvalid: boolean = false;
   districtActive: any = true;
+  frameworks: Framework[] = [
+    {
+      name: 'Angular',
+      control: 'angular',
+      value: 'angular',
+      id: 'checkAngular',
+    },
+    {
+      name: 'React',
+      control: 'react',
+      value: 'react',
+      id: 'checkReact',
+    },
+    {
+      name: 'Vue',
+      control: 'vue',
+      value: 'vue',
+      id: 'checkVue',
+    },
+    {
+      name: 'Jquery',
+      control: 'jquery',
+      value: 'jquery',
+      id: 'checkJquery',
+    },
+  ];
 
   constructor(
     private activeRouter: ActivatedRoute,
