@@ -145,28 +145,18 @@
       </div>
 
       <!-- {{forms.value.framework | json}} -->
-      <div class="col form-group">
+      <div formGroupName="framework" class="col">
         <label for="" class="form-label">Frameworks</label>
 
-        <div formGroupName="framework">
-          <div class="row p-2 ">
-
-            <div class="col">
-
-              <div *ngFor="let framework of frameworks">
-                <ab-control-error errorMessage="framework obrigatório!">
-                  <div class="form-check form-check-inline">
-                    <input [ngClass]="validatorSet('framework')" formControlName="{{framework.control}}" type="checkbox" name="framework"
-                      id="{{framework.id}}" class="form-check-input" value="{{framework.value}}">
-                    <label class="form-check-label" for="flexRadioDefault1">{{framework.name}}</label>
-                  </div>
-                </ab-control-error>
-              </div>
-
-            </div>
-
+        <ab-control-error errorMessage="framework obrigatório!">
+          <div class="form-check form-check-inline" *ngFor="let framework of frameworks">
+            <input class="form-check-input" type="checkbox" id="{{framework.id}}" value="{{framework.value}}"
+              [ngClass]="validatorSet('framework')" formControlName="{{framework.control}}" name="framework">
+            <label class="form-check-label" for="{{framework.id}}">{{framework.name}}</label>
           </div>
-        </div>
+        </ab-control-error>
+
+
       </div>
     </div>
     <div class="row p-2">
@@ -186,7 +176,7 @@
           <div class="form-check form-check-inline">
             <input [ngClass]="validatorSet('neswllet')" formControlName="neswllet" type="radio" name="neswllet" id="radioOption2"
               class="form-check-input" value="nao">
-            <label class="form-check-label" for="sim">Não</label>
+            <label class="form-check-label" for="nao">Não</label>
           </div>
         </ab-control-error>
 
